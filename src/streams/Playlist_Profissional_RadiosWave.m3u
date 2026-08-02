@@ -1,0 +1,423 @@
+#EXTM3U
+#EXTINF:-1 tvg-name="Rádio Olivença FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Bahia | fm/popular",Rádio Olivença FM
+https://server12.srvsh.com.br:8074/stream
+#EXTINF:-1 tvg-name="Rádio Vale FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Vale FM
+https://s37.maxcast.com.br:8058/live
+#EXTINF:-1 tvg-name="Rádio Jovem Palmas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/jovem",Rádio Jovem Palmas
+https://5a2b083e9f360.streamlock.net/aycomau1/aycomau1.stream/playlist.m3u8
+#EXTINF:-1 tvg-name="Rádio HCJB" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio HCJB
+https://streamingecuador.net:8287/hcjb
+#EXTINF:-1 tvg-name="Rádio Ativa FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Ativa FM
+http://servidor33.brlogic.com:8224/live
+#EXTINF:-1 tvg-name="Rádio Paraiso FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/gospel",Rádio Paraiso FM
+https://sonicpanel.oficialserver.com/8112/stream
+#EXTINF:-1 tvg-name="Rádio Tocantins PN" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | am/noticias",Rádio Tocantins PN
+https://sv1.audiostream.com.br/radio/8040/stream
+#EXTINF:-1 tvg-name="Rádio Itatiaia" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Minas Gerais | noticias/jornalismo",Rádio Itatiaia
+https://8903.brasilstream.com.br/stream
+#EXTINF:-1 tvg-name="Rádio Unitins FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | educativa/fm",Rádio Unitins FM
+https://live.unitins.br
+#EXTINF:-1 tvg-name="Rádio Porto" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Porto
+https://sonicpanel.oficialserver.com:7120/stream
+#EXTINF:-1 tvg-name="Rádio Transamérica" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/hits/pop",Rádio Transamérica
+https://playerservices.streamtheworld.com/api/livestream-redirect/RT_SPAAC.aac
+#EXTINF:-1 tvg-name="Rádio Nacional Brasília 980 AM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Distrito Federal | am/noticias/ebc",Rádio Nacional Brasília 980 AM
+https://radionacionalbrasilia-stream.ebc.com.br/NACIONAL_AM_BRASILIA-mp4a_212000_eng=20000.m3u8
+#EXTINF:-1 tvg-name="Rádio Nacional da Amazônia OC 11.780 KHZ" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Amazonas | onda curta/noticias/ebc",Rádio Nacional da Amazônia OC 11.780 KHZ
+https://radionacionalamazonia-stream.ebc.com.br/ebc/radionacionalamazonia/NACIONAL_AMAZONIA-mp4a_212000_eng=20000.m3u8
+#EXTINF:-1 tvg-name="Rádio Nacional da Amazônia OC 6.180 KHZ" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Amazonas | onda curta/noticias/ebc",Rádio Nacional da Amazônia OC 6.180 KHZ
+https://radionacionalamazonia-stream.ebc.com.br/ebc/radionacionalamazonia/NACIONAL_AMAZONIA-mp4a_212000_eng=20000.m3u8
+#EXTINF:-1 tvg-name="Rádio 106 FM Três Barras" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",Rádio 106 FM Três Barras
+https://stm01.virtualcast.com.br:8356/106tresbarras
+#EXTINF:-1 tvg-name="Rádio Cidade FM Três Barras do Paraná" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Paraná | fm/popular",Rádio Cidade FM Três Barras do Paraná
+http://streaming18.hstbr.net:8032/live
+#EXTINF:-1 tvg-name="Rádio Web Parada Universitária" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Paraná | web/universitaria",Rádio Web Parada Universitária
+https://servidor26-5.brlogic.com:8192/live
+#EXTINF:-1 tvg-name="Web Rádio KG Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | web/popular",Web Rádio KG Canoinhas
+https://stm13.xcast.com.br:10672/stream
+#EXTINF:-1 tvg-name="Rádio Massa FM Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",Rádio Massa FM Canoinhas
+http://live.paineldj.com.br:10406/stream
+#EXTINF:-1 tvg-name="Rádio 98 FM Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",Rádio 98 FM Canoinhas
+https://ice.fabricahost.com.br/radio98fm
+#EXTINF:-1 tvg-name="Rádio Clube FM Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",Rádio Clube FM Canoinhas
+https://cast.youngtech.radio.br/radio/8370/radio
+#EXTINF:-1 tvg-name="Rádio UNC FM Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/educativa",Rádio UNC FM Canoinhas
+https://web.uncfm.com.br/fmcni
+#EXTINF:-1 tvg-name="Rádio Web Space Hits Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | web/hits/pop",Rádio Web Space Hits Canoinhas
+https://stm15.xcast.com.br:8908/stream
+#EXTINF:-1 tvg-name="Rádio Web e Jornal Teu Espaço Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | web/noticias",Rádio Web e Jornal Teu Espaço Canoinhas
+https://stm10.voxhd.com.br:8148/stream
+#EXTINF:-1 tvg-name="Rádio Web Jesus Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | web/gospel/evangelica",Rádio Web Jesus Canoinhas
+https://hts03.brascast.com:9900/live
+#EXTINF:-1 tvg-name="Rádio Web Tupinambá Canoinhas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | web/popular",Rádio Web Tupinambá Canoinhas
+https://s01.taaqui.org:8374/live
+#EXTINF:-1 tvg-name="Rádio Jovem Palmas 104.7 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Jovem Palmas 104.7 FM
+https://virtues.live:8094/stream
+#EXTINF:-1 tvg-name="Rádio Gospel Palmas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | gospel/evangelica",Rádio Gospel Palmas
+https://sonicpanel.oficialserver.com/8108/;
+#EXTINF:-1 tvg-name="Rádio Capim Dourado FM Palmas" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Capim Dourado FM Palmas
+https://stm2.voxhd.com.br:13314/stream
+#EXTINF:-1 tvg-name="Rádio Sucesso Guaraí" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Sucesso Guaraí
+https://streaming.livespanel.com:20961/sucessofmto
+#EXTINF:-1 tvg-name="Rádio Itamaraty FM Campos Lindos" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Itamaraty FM Campos Lindos
+https://sonicpanel.oficialserver.com/8130/stream
+#EXTINF:-1 tvg-name="Rádio Miranorte FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Miranorte FM
+https://sonicpanel.oficialserver.com:7133/stream
+#EXTINF:-1 tvg-name="Rádio Miracema FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Miracema FM
+https://sonicpanel.oficialserver.com:7117/stream
+#EXTINF:-1 tvg-name="Rádio Tocantins FM Araguaína" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Tocantins FM Araguaína
+https://s22.maxcast.com.br:8210/live
+#EXTINF:-1 tvg-name="Rádio Araguaia 99.7 FM Araguaína" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Araguaia 99.7 FM Araguaína
+https://live.ojc.com.br/e9cd_8/myStream/playlist
+#EXTINF:-1 tvg-name="Rádio Jovem Gospel FM Araguaína" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/gospel/evangelica",Rádio Jovem Gospel FM Araguaína
+https://servidor26.brlogic.com:8038/live
+#EXTINF:-1 tvg-name="Rádio Cidade 102.1 FM Gurupi" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Cidade 102.1 FM Gurupi
+https://s40.maxcast.com.br:8024/live?
+#EXTINF:-1 tvg-name="Rádio Araguaia 96.7 FM Gurupi" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Araguaia 96.7 FM Gurupi
+https://live.ojc.com.br/e9cd_7/myStream/playlist
+#EXTINF:-1 tvg-name="Rádio Tocantins 97.9 FM Gurupi" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Tocantins | fm/popular",Rádio Tocantins 97.9 FM Gurupi
+https://wms5.webradios.com.br:19030/9030
+#EXTINF:-1 tvg-name="Mega 96.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Mega 96.9 FM
+https://liveaudio.lamusica.com/NY_WSKQ_icy
+#EXTINF:-1 tvg-name="Rádio Clube FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Clube FM
+https://sc4s.cdn.upx.com:8069/stream/1/
+#EXTINF:-1 tvg-name="Rádio Cultura Xaxim" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",Rádio Cultura Xaxim
+https://cast2.youngtech.radio.br/radio/8210/radio
+#EXTINF:-1 tvg-name="104.9 FM Campos Novos" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",104.9 FM Campos Novos
+https://stream2.svrdedicado.org:8168/stream
+#EXTINF:-1 tvg-name="Diamantina FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Minas Gerais | fm/popular",Diamantina FM
+https://8998.brasilstream.com.br/stream
+#EXTINF:-1 tvg-name="Silvestre FM 91.1" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Silvestre FM 91.1
+https://9818.brasilstream.com.br/stream
+#EXTINF:-1 tvg-name="Rádio Alternativa Bauru" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Rádio Alternativa Bauru
+https://player.xcast.com.br/proxy/7616
+#EXTINF:-1 tvg-name="Rádio Cidade Cuité" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Paraíba | fm/popular",Rádio Cidade Cuité
+https://8076.brasilstream.com.br/stream
+#EXTINF:-1 tvg-name="Canabrava FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Canabrava FM
+https://ssl.xcast.com.br:11406/?type.mp3
+#EXTINF:-1 tvg-name="Rádio Rosário 89.7 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Rosário 89.7 FM
+https://vp090.voope.com.br/8050/
+#EXTINF:-1 tvg-name="Rádio Jota FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Jota FM
+https://stream.radiosms.com.br/radio/8090/
+#EXTINF:-1 tvg-name="Rádio UPE Web" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Pernambuco | web/universitaria/educativa",Rádio UPE Web
+https://stm24.xcast.com.br:13296/
+#EXTINF:-1 tvg-name="Rádio Difusora Jota FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Difusora Jota FM
+https://stream.radiosms.com.br/radio/8050/
+#EXTINF:-1 tvg-name="Rádio Trans BJ FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Trans BJ FM
+https://srv2.braudio.com.br/sc/7078
+#EXTINF:-1 tvg-name="Macaúbas FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Bahia | fm/popular",Macaúbas FM
+https://cast3.hoost.com.br:20009/stream
+#EXTINF:-1 tvg-name="Costa Branca FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Rio Grande do Norte | fm/popular",Costa Branca FM
+https://ssl.xcast.com.br:11424/stream
+#EXTINF:-1 tvg-name="Rádio Celebration" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio Celebration
+https://player.transmissaodigital.com/proxy/7304/
+#EXTINF:-1 tvg-name="Cultura FM 97.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Cultura FM 97.5
+https://radio.saopaulo01.com.br:7016/stream
+#EXTINF:-1 tvg-name="Rádio Clube Recife AM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Pernambuco | am/popular",Rádio Clube Recife AM
+https://radio.saopaulo01.com.br/8018/stream
+#EXTINF:-1 tvg-name="Rádio Independência FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Independência FM
+https://streaming.radiosenlinea.com.ar/8070/stream
+#EXTINF:-1 tvg-name="Rádio Nova Salvador FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Bahia | fm/popular",Rádio Nova Salvador FM
+https://stream.ouveai.com.br/proxy/novasalvador?mp=/stream
+#EXTINF:-1 tvg-name="Jota FM 101.3" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Jota FM 101.3
+https://stream.radiosms.com.br/radio/8110/
+#EXTINF:-1 tvg-name="Rádio Capital FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Capital FM
+https://servidor39.brlogic.com:8478/live
+#EXTINF:-1 tvg-name="Rádio Roma FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Roma FM
+https://cc6.streammaximum.com/proxy/romafm/stream
+#EXTINF:-1 tvg-name="Betel FM 87.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Betel FM 87.9
+https://stm20.xcast.com.br:7946/stream
+#EXTINF:-1 tvg-name="Rádio Antena Sul FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Antena Sul FM
+https://5a2b083e9f360.streamlock.net/antenasulfmhd/antenasulfmhd.stream/playlist.m3u8
+#EXTINF:-1 tvg-name="91 FM Sertaneja" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/sertanejo",91 FM Sertaneja
+https://sc4s.cdn.upx.com:8075/stream
+#EXTINF:-1 tvg-name="Cristo Rei FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/catolica",Cristo Rei FM
+https://servidor35-5.brlogic.com:8216/live
+#EXTINF:-1 tvg-name="Rádio Nova 104.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Nova 104.9 FM
+https://casthttps.suaradionanet.net/10004/stream
+#EXTINF:-1 tvg-name="Rádio Caldas 105 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Goiás | fm/popular",Rádio Caldas 105 FM
+https://servidor28-5.brlogic.com:8334/live
+#EXTINF:-1 tvg-name="Rádio Pindorama Jota" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Pindorama Jota
+https://stream.radiosms.com.br/radio/8040/
+#EXTINF:-1 tvg-name="Rádio Caruá FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Caruá FM
+https://servidor34-1.brlogic.com:8112/live
+#EXTINF:-1 tvg-name="Rádio Rotary FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Rotary FM
+https://stm3.conectastreaming.com:7088/stream
+#EXTINF:-1 tvg-name="Rádio Darcio Rabelo" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Darcio Rabelo
+https://s28.maxcast.com.br:8174/live
+#EXTINF:-1 tvg-name="Educadora AM 630" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Mato Grosso | am/educativa",Educadora AM 630
+https://stm01.virtualcast.com.br:8030/educadoramalrondon
+#EXTINF:-1 tvg-name="Rádio Jota FM 92.3" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Jota FM 92.3
+https://painel.radiosms.com.br/8024/stream/
+#EXTINF:-1 tvg-name="Rádio A Voz do Povo" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio A Voz do Povo
+https://wms5.webradios.com.br:19036/9036
+#EXTINF:-1 tvg-name="Rádio Educadora" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | educativa/noticias",Rádio Educadora
+https://5a57bda70564a.streamlock.net/educadoraonline/educadoraonline.stream/playlist.m3u8
+#EXTINF:-1 tvg-name="Rádio Deus e a Verdade" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio Deus e a Verdade
+https://s36.maxcast.com.br:8281/live
+#EXTINF:-1 tvg-name="Rádio Contorno FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Contorno FM
+https://ssl.studiorenascer.com:7006/
+#EXTINF:-1 tvg-name="Três Lagoas FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Mato Grosso do Sul | fm/popular",Três Lagoas FM
+https://stream.radiosms.com.br/radio/8180/
+#EXTINF:-1 tvg-name="Rádio Rural FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/regional",Rádio Rural FM
+https://stm16.xcast.com.br:9966/stream
+#EXTINF:-1 tvg-name="Rádio Doce Rio" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Doce Rio
+https://hts06.brascast.com:8984/stream
+#EXTINF:-1 tvg-name="Rádio Maringá 98.7 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Paraná | fm/popular",Rádio Maringá 98.7 FM
+https://stm1.stmsrv.com:8016/stream
+#EXTINF:-1 tvg-name="RTM 104.7 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",RTM 104.7 FM
+https://radiortm.jmvstream.com/streamstream.nsv&type=aac
+#EXTINF:-1 tvg-name="Rádio Catarinense FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",Rádio Catarinense FM
+https://catarinensefm.streams.com.br/stream
+#EXTINF:-1 tvg-name="Rádio Mimoso FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Mimoso FM
+https://stm1.painelcast.com:7254/stream
+#EXTINF:-1 tvg-name="Rádio Central Jota FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Central Jota FM
+https://stream.radiosms.com.br/radio/8100/
+#EXTINF:-1 tvg-name="Rádio Independente FM 93.7" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Independente FM 93.7
+https://server07.srvsh.com.br:7716/live
+#EXTINF:-1 tvg-name="Rádio Comunitária FM Cidade" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Paraíba | fm/comunitaria",Rádio Comunitária FM Cidade
+https://5a57bda70564a.streamlock.net/fmcidadepbhd/fmcidadepbhd.stream/playlist.m3u8
+#EXTINF:-1 tvg-name="Rádio Sintonia FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Sintonia FM
+https://9669.brasilstream.com.br/stream
+#EXTINF:-1 tvg-name="Rádio Comunitária Legal FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/comunitaria",Rádio Comunitária Legal FM
+https://wms5.webradios.com.br:18938/8938
+#EXTINF:-1 tvg-name="Rádio Fronteira" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Fronteira
+https://sonicpanel.oficialserver.com/9992/stream
+#EXTINF:-1 tvg-name="Rádio Líder FM 87.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Líder FM 87.9
+https://s23.maxcast.com.br:8284/live
+#EXTINF:-1 tvg-name="Rádio Campo Maior" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Piauí | fm/popular",Rádio Campo Maior
+https://streammaior.jmhost.com.br/radio/8010/
+#EXTINF:-1 tvg-name="Rádio Cidade Polo FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Cidade Polo FM
+https://stm25.srvaudio.com.br:11732/stream
+#EXTINF:-1 tvg-name="Rádio Sanca" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Rádio Sanca
+https://player.xcast.com.br/proxy/11272/
+#EXTINF:-1 tvg-name="Web Rádio Show" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Web Rádio Show
+https://player.xcast.com.br/proxy/9298
+#EXTINF:-1 tvg-name="Rádio Sol FM 98.7" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Sol FM 98.7
+https://5a2b083e9f360.streamlock.net/solfm1/solfm1.stream/playlist.m3u8
+#EXTINF:-1 tvg-name="Rádio Cultura 101.1 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Cultura 101.1 FM
+https://cast.hoost.com.br:20153/stream
+#EXTINF:-1 tvg-name="Rádio Estação JC" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Estação JC
+https://s42.maxcast.com.br:8224/live
+#EXTINF:-1 tvg-name="Rádio Cidade FM 95.3" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Cidade FM 95.3
+https://stm26.srvaudio.com.br:9462/stream
+#EXTINF:-1 tvg-name="Rádio Alternativa FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Alternativa FM
+https://ssl.srvstm.com:14582/
+#EXTINF:-1 tvg-name="Rádio Liderança" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Liderança
+https://webradio.amsolution.com.br/radio/8320/lideranca
+#EXTINF:-1 tvg-name="Rádio FM Liberdade" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio FM Liberdade
+https://8148.brasilstream.com.br/stream
+#EXTINF:-1 tvg-name="Rádio Coroado FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Amazonas | fm/popular",Rádio Coroado FM
+https://s41.maxcast.com.br:8176/live
+#EXTINF:-1 tvg-name="Rádio Independência FM 104.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Independência FM 104.9
+https://sv10.hdradios.net:25380/stream
+#EXTINF:-1 tvg-name="Rádio Mar Azul FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Mar Azul FM
+https://servidor37-3.brlogic.com:8390/live
+#EXTINF:-1 tvg-name="Web Rádio Jovem" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Web Rádio Jovem
+https://ssl.xcast.com.br:11096/
+#EXTINF:-1 tvg-name="Rádio Clube FM 93.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Clube FM 93.5
+https://gruporadioclube2.jmvstream.com/live
+#EXTINF:-1 tvg-name="Falcão Líder FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Falcão Líder FM
+https://sonicpanel.oficialserver.com/8040/stream
+#EXTINF:-1 tvg-name="Rádio Dalila 87.5 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Dalila 87.5 FM
+https://centova4.transmissaodigital.com:20157/stream
+#EXTINF:-1 tvg-name="Alpes Rádio" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Alpes Rádio
+https://s13.maxcast.com.br:8162/live
+#EXTINF:-1 tvg-name="Rádio Fonte e Vida" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio Fonte e Vida
+https://wms5.webradios.com.br:19034/9034
+#EXTINF:-1 tvg-name="Rádio Taquarituba FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Rádio Taquarituba FM
+https://sonicpanel.oficialserver.com/9986/stream
+#EXTINF:-1 tvg-name="Voz da Ilha Itamaracá FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Pernambuco | fm/popular",Voz da Ilha Itamaracá FM
+https://player.painelvox.com/player-ssl/8628/
+#EXTINF:-1 tvg-name="Enseada FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Enseada FM
+https://stm50.srvstm.com:10106/stream
+#EXTINF:-1 tvg-name="Nova Alternativa Web Rádio" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Nova Alternativa Web Rádio
+https://servidor20.brlogic.com:7078/live
+#EXTINF:-1 tvg-name="Comunidade FM 104.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Minas Gerais | fm/comunitaria",Comunidade FM 104.9
+https://5a57bda70564a.streamlock.net/cfmmg/cfmmg.stream/playlist.m3u8
+#EXTINF:-1 tvg-name="Rádio Onda Mix" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/pop",Rádio Onda Mix
+https://stm9.voxhd.com.br:6772/stream
+#EXTINF:-1 tvg-name="Rádio Show RP" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Show RP
+https://stm21.srvaudio.com.br:10482/stream
+#EXTINF:-1 tvg-name="Rádio Campo Alegre" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Alagoas | fm/popular",Rádio Campo Alegre
+https://s45.maxcast.com.br:8054/live
+#EXTINF:-1 tvg-name="Rádio Cidade Verde" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Cidade Verde
+https://ssl1.transmissaodigital.com:20010/
+#EXTINF:-1 tvg-name="Rádio Eletro Mix" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/eletronica",Rádio Eletro Mix
+https://player.srvsh.com.br/proxy/7704
+#EXTINF:-1 tvg-name="Rádio Auxiliadora FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Auxiliadora FM
+https://wms5.webradios.com.br:18986/8986
+#EXTINF:-1 tvg-name="Rádio A Porta" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio A Porta
+https://player.painelvox.com/player-ssl/6764/
+#EXTINF:-1 tvg-name="Rádio Surubim AM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Pernambuco | am/popular",Rádio Surubim AM
+https://9567.brasilstream.com.br/stream
+#EXTINF:-1 tvg-name="Rádio Cuba Mix FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/pop",Rádio Cuba Mix FM
+https://servidor27.brlogic.com:8052/live
+#EXTINF:-1 tvg-name="Rádio Inovação FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Inovação FM
+https://centova4.transmissaodigital.com:20226/stream/
+#EXTINF:-1 tvg-name="Rádio Juventude FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Juventude FM
+https://str02.kfmidia.com.br:6718/stream
+#EXTINF:-1 tvg-name="Rádio Paraitinga FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Rádio Paraitinga FM
+https://radio.saopaulo01.com.br:10930/
+#EXTINF:-1 tvg-name="Rádio Cultura 100.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Cultura 100.9 FM
+https://centova.svdns.com.br:20035/stream
+#EXTINF:-1 tvg-name="Rádio Manancial 104.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio Manancial 104.9 FM
+https://player-ssl.painelstream.net:9928/live/
+#EXTINF:-1 tvg-name="Rádio Vida FM 104.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio Vida FM 104.9
+https://stm21.srvaudio.com.br:10956/stream
+#EXTINF:-1 tvg-name="Rádio Metrópole FM 87.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Metrópole FM 87.9
+https://cast4.hoost.com.br:20028/stream
+#EXTINF:-1 tvg-name="Rádio Fumec" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Minas Gerais | web/universitaria/educativa",Rádio Fumec
+https://centova4.transmissaodigital.com:20058/stream
+#EXTINF:-1 tvg-name="Rádio Web Amparo Mix" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | web/pop",Rádio Web Amparo Mix
+https://s37.maxcast.com.br:8938/live
+#EXTINF:-1 tvg-name="Rádio Verona 106.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Verona 106.9 FM
+https://player.srvaudio.com.br/player-ssl/10306/
+#EXTINF:-1 tvg-name="Rádio Comunitária Encanto do Planalto" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/comunitaria",Rádio Comunitária Encanto do Planalto
+https://s11.w3bserver.com/radio/8000/
+#EXTINF:-1 tvg-name="Rádio Unimontes FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Minas Gerais | fm/universitaria/educativa",Rádio Unimontes FM
+https://s25.maxcast.com.br:8100/live
+#EXTINF:-1 tvg-name="Rede Alternativa FM 106.3" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rede Alternativa FM 106.3
+https://ssl.xcast.com.br:11720/
+#EXTINF:-1 tvg-name="Alternativa 104.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Alternativa 104.9 FM
+https://ssl.voxhd.com.br:8238/
+#EXTINF:-1 tvg-name="Xique News FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Bahia | fm/noticias",Xique News FM
+https://stm7.xcast.com.br:10628/stream
+#EXTINF:-1 tvg-name="Rádio Dynâmica FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Rádio Dynâmica FM
+https://radio.saopaulo01.com.br:10846/stream
+#EXTINF:-1 tvg-name="Rádio 13 de Maio" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio 13 de Maio
+https://s16.maxcast.com.br:8835/live
+#EXTINF:-1 tvg-name="Rádio Nova FM Goiana" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Pernambuco | fm/popular",Rádio Nova FM Goiana
+https://stm9.srvvox.com.br:7744/stream
+#EXTINF:-1 tvg-name="Rádio Santa Rita FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Santa Rita FM
+https://player.audiovox.pw/proxy/6738
+#EXTINF:-1 tvg-name="Rádio Itaoca" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Rádio Itaoca
+https://stm3.xcast.com.br:11040/
+#EXTINF:-1 tvg-name="Rádio Serrote FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Alagoas | fm/popular",Rádio Serrote FM
+https://ssl.studiorenascer.com:7124/
+#EXTINF:-1 tvg-name="Rádio Liberdade Poté" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Minas Gerais | fm/popular",Rádio Liberdade Poté
+https://casthttps1.suaradionanet.net/13421/stream
+#EXTINF:-1 tvg-name="Rádio Comunitária 87.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/comunitaria",Rádio Comunitária 87.9 FM
+https://streaming.speedrs.com.br/radio/8000/comunitaria
+#EXTINF:-1 tvg-name="Web Rádio Essencial" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Web Rádio Essencial
+https://player.srvsh.com.br/proxy/6750
+#EXTINF:-1 tvg-name="WebRádio Moto Notícia" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/noticias",WebRádio Moto Notícia
+https://player.painelvox.com/player-ssl/28748/
+#EXTINF:-1 tvg-name="Rádio Boca da Mata FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Alagoas | fm/popular",Rádio Boca da Mata FM
+https://servidor37-5.brlogic.com:8382/live
+#EXTINF:-1 tvg-name="Rádio Brasil FM 98.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Brasil FM 98.5
+https://stm1.matutos.com.br:8072/
+#EXTINF:-1 tvg-name="Rádio 94POP FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/pop",Rádio 94POP FM
+https://radiosocorro.jmvstream.com/stream
+#EXTINF:-1 tvg-name="Rádio Sideral 98.1 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Sideral 98.1 FM
+https://r17.ciclano.io/proxy/radio98fm/stream
+#EXTINF:-1 tvg-name="Rádio Carinho FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Carinho FM
+https://ssl.xcast.com.br:7802/
+#EXTINF:-1 tvg-name="Rádio Líder Centro FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Líder Centro FM
+https://stm27.srvaudio.com.br:10046/stream
+#EXTINF:-1 tvg-name="Tropical FM 87.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Tropical FM 87.5
+https://streaming.mpxwebradio.com/listen/tropicalfm/stream
+#EXTINF:-1 tvg-name="Rádio Paiaguás Jota FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Mato Grosso | fm/popular",Rádio Paiaguás Jota FM
+https://stream.radiosms.com.br/radio/8120/
+#EXTINF:-1 tvg-name="Rádio Educadora de Belém" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Pará | am/educativa",Rádio Educadora de Belém
+https://stm1.matutos.com.br:9272/
+#EXTINF:-1 tvg-name="Liberal FM 87.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Liberal FM 87.9
+https://s43.maxcast.com.br:8052/live
+#EXTINF:-1 tvg-name="Rádio Jornal da Manhã" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/noticias",Rádio Jornal da Manhã
+https://centova4.transmissaodigital.com:20066/
+#EXTINF:-1 tvg-name="Rádio Tropical Original Web" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Rádio Tropical Original Web
+https://casthttps1.suaradionanet.net/10632/stream
+#EXTINF:-1 tvg-name="Rádio Piratininga" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Rádio Piratininga
+https://str1.streamhostpg.com.br:8052/stream
+#EXTINF:-1 tvg-name="Rádio Terra FM 87.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Terra FM 87.9
+https://servidor35-4.brlogic.com:8208/live
+#EXTINF:-1 tvg-name="Rádio Santa Luz FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Bahia | fm/popular",Rádio Santa Luz FM
+https://cast3.hoost.com.br:20040/stream
+#EXTINF:-1 tvg-name="Buriti FM 87.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Maranhão | fm/popular",Buriti FM 87.9
+https://player.painelvox.com/player-ssl/8058
+#EXTINF:-1 tvg-name="Rádio Suzukysat" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Suzukysat
+https://player.stms.live/proxy/8456
+#EXTINF:-1 tvg-name="Rádio Alvorada do Sertão – Rede Emersat" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/sertanejo/regional",Rádio Alvorada do Sertão – Rede Emersat
+https://stm25.xcast.com.br:9524/stream
+#EXTINF:-1 tvg-name="Sucesso FM 87.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Sucesso FM 87.5
+https://servidor38-2.brlogic.com:8076/live
+#EXTINF:-1 tvg-name="Rádio Volt 87.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Volt 87.9 FM
+https://stm16.srvstm.com:7664/stream
+#EXTINF:-1 tvg-name="Rádio Giruá FM 102.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Rio Grande do Sul | fm/popular",Rádio Giruá FM 102.9
+https://servidor25-1.brlogic.com:8018/live
+#EXTINF:-1 tvg-name="Rádio Liberal 99.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Liberal 99.5
+https://casthttps.suaradionanet.net/10818/stream
+#EXTINF:-1 tvg-name="NovaFM 103.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",NovaFM 103.9
+https://stm01.virtualcast.com.br:8264/novaindaial
+#EXTINF:-1 tvg-name="Web Rádio AECX" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Web Rádio AECX
+https://stm27.xcast.com.br:8950/stream
+#EXTINF:-1 tvg-name="Rádio Teixeiras FM 87.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Minas Gerais | fm/popular",Rádio Teixeiras FM 87.9
+https://player.stream2.com.br/proxy/8214
+#EXTINF:-1 tvg-name="Rádio Vila Feliz" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Vila Feliz
+https://srv3.braudio.com.br:7232/stream
+#EXTINF:-1 tvg-name="Clube FM 94.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Clube FM 94.9
+https://player.painelvox.com/player-ssl/6766/
+#EXTINF:-1 tvg-name="Rádio Balneário FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Santa Catarina | fm/popular",Rádio Balneário FM
+https://streaming.ebamix.com.br/radio/8020/radio.mp3
+#EXTINF:-1 tvg-name="Itapicuru FM 104.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Bahia | fm/popular",Itapicuru FM 104.9
+https://player.studiorenascer.com/proxy/7066
+#EXTINF:-1 tvg-name="Rádio Esperança 87.9 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio Esperança 87.9 FM
+https://03.painelstreaming.com.br:27206/stream
+#EXTINF:-1 tvg-name="Web Rádio 50" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Web Rádio 50
+https://live8.livemus.com.br:27152/stream
+#EXTINF:-1 tvg-name="Rádio Sementes de Mentes" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Rádio Sementes de Mentes
+https://streaming.studioshopping.com.br/listen/radio_sementes_de_mentes/radio
+#EXTINF:-1 tvg-name="Rádio Millenium FM 87.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Millenium FM 87.9
+https://stm2.streamproarte.com.br:7480/stream
+#EXTINF:-1 tvg-name="Rádio Florestal FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Minas Gerais | fm/popular",Rádio Florestal FM
+https://sv14.hdradios.net:8238/stream
+#EXTINF:-1 tvg-name="Rádio Sertões FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/sertanejo/regional",Rádio Sertões FM
+https://server3.webradios.com.br:19348/9348
+#EXTINF:-1 tvg-name="Eldorado Nova" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Eldorado Nova
+https://paineldj6.com.br:20025/live
+#EXTINF:-1 tvg-name="Let the Music Radio" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/pop",Let the Music Radio
+https://ssl.srvstm.com:9688/
+#EXTINF:-1 tvg-name="Rádio Virtuall News" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/noticias",Rádio Virtuall News
+https://player-ssl.painelstream.net:8204/live
+#EXTINF:-1 tvg-name="Rádio Mais FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Mais FM
+https://whd1.webradios.com.br:18512/8512
+#EXTINF:-1 tvg-name="Rádio Nove" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Nove
+https://servidor22.brlogic.com:7050/live
+#EXTINF:-1 tvg-name="Rádio NDFM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio NDFM
+https://superaudio.radio.br/radio/8070/stream
+#EXTINF:-1 tvg-name="Rádio Web Tirol" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Rádio Web Tirol
+https://paineldj5.com.br:20076/stream
+#EXTINF:-1 tvg-name="Rádio Aliança FM 98.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Aliança FM 98.5
+https://player.srvstm.com/proxy/9222
+#EXTINF:-1 tvg-name="Rádio Vale do Piauí FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Piauí | fm/popular",Rádio Vale do Piauí FM
+https://webradio.amsolution.com.br/radio/8330/vale97
+#EXTINF:-1 tvg-name="Rádio Voz do Vale FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | web/popular",Rádio Voz do Vale FM
+https://streaming.radionomy.com/JamendoLounge
+#EXTINF:-1 tvg-name="Integração 102.3 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Integração 102.3 FM
+https://cast3.hoost.com.br:8241/stream
+#EXTINF:-1 tvg-name="Rádio Amaraji FM 98.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Pernambuco | fm/popular",Rádio Amaraji FM 98.5
+https://stm1.aovivodigital.com.br:10724/
+#EXTINF:-1 tvg-name="Tempos Radiante Web Rádio" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Tempos Radiante Web Rádio
+https://s44.maxcast.com.br:8072/live
+#EXTINF:-1 tvg-name="Rádio Avante" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Avante
+https://stm17.xcast.com.br:8202/
+#EXTINF:-1 tvg-name="Serrana FM 91.3" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Serrana FM 91.3
+https://rvn01.painelstream.net:9278/live
+#EXTINF:-1 tvg-name="Rádio União FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio União FM
+https://stm1.pluscast.com.br:7144/
+#EXTINF:-1 tvg-name="Rádio Forró Mix" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/forro/regional",Rádio Forró Mix
+https://8332.brasilstream.com.br/stream
+#EXTINF:-1 tvg-name="Cultura FM 95.5" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Cultura FM 95.5
+https://paineldj5.com.br:20040/stream
+#EXTINF:-1 tvg-name="Visão FM 104.9" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | gospel/evangelica",Visão FM 104.9
+https://whd1.webradios.com.br:18598/8598
+#EXTINF:-1 tvg-name="Mídia FM Socorro" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="São Paulo | fm/popular",Mídia FM Socorro
+https://sv16.hdradios.net:8242/stream
+#EXTINF:-1 tvg-name="Rádio Cidade Tabira FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Pernambuco | fm/popular",Rádio Cidade Tabira FM
+https://s18.maxcast.com.br:8545/live
+#EXTINF:-1 tvg-name="Rádio Acesa 87.5 FM" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio Acesa 87.5 FM
+https://stream.hospedandosites.com.br/8084/stream
+#EXTINF:-1 tvg-name="Rádio FM Terra" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Brasil | fm/popular",Rádio FM Terra
+https://servidor30.brlogic.com:8622/live
+#EXTINF:-1 tvg-name="Rádio Serra Branca Web" tvg-logo="https://radioswave.netlify.app/icon-192x192.png" group-title="Paraíba | web/popular",Rádio Serra Branca Web
+https://stm45.srvstm.com:19104/stream
