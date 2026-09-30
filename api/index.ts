@@ -1,32 +1,32 @@
-import * as dotenv from 'dotenv';
-const initialEnvKey = process.env.API_KEY;
-dotenv.config({ override: true });
-if (initialEnvKey && initialEnvKey !== process.env.API_KEY) {
-  process.env.SYSTEM_API_KEY = initialEnvKey;
-}
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
-import express from 'express';
-import { AppModule } from './app.module';
-import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import express, { Express, Request, Response } from 'express';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import { AppModule } from '../src/app.module';
+import { HttpExceptionFilter } from '../src/common/filters/http-exception.filter';
 
-async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+const server: Express = express();
+let isReady = false;
 
-  // Disable X-Powered-By header to avoid framework identification
-  app.disable('x-powered-by');
+async function bootstrapServer(expressInstance: Express) {
+  const app = await NestFactory.create(
+    AppModule,
+    new ExpressAdapter(expressInstance),
+  );
 
-  // Protect against large payload DoS attacks
+  const expressApp = app.getHttpAdapter().getInstance();
+  if (expressApp && typeof expressApp.disable === 'function') {
+    expressApp.disable('x-powered-by');
+  }
+
   app.use(express.json({ limit: '64kb' }));
   app.use(express.urlencoded({ limit: '64kb', extended: false }));
 
-  // Comprehensive security headers via Helmet
   app.use(
     helmet({
-      contentSecurityPolicy: false, // Allows Swagger UI inline assets
+      contentSecurityPolicy: false,
       crossOriginEmbedderPolicy: false,
       crossOriginOpenerPolicy: { policy: 'same-origin' },
       crossOriginResourcePolicy: { policy: 'cross-origin' },
@@ -45,7 +45,6 @@ async function bootstrap() {
     }),
   );
 
-  // Hardened CORS configuration (read-only API)
   app.enableCors({
     origin: '*',
     methods: ['GET', 'HEAD', 'OPTIONS'],
@@ -66,7 +65,6 @@ async function bootstrap() {
     maxAge: 86400,
   });
 
-  // Strict global input validation
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -78,10 +76,8 @@ async function bootstrap() {
     }),
   );
 
-  // Global exception filter with credential redaction
   app.useGlobalFilters(new HttpExceptionFilter());
 
-  // Interactive Swagger UI documentation
   const swaggerConfig = new DocumentBuilder()
     .setTitle('RadiosWave API')
     .setDescription(
@@ -115,7 +111,13 @@ async function bootstrap() {
     },
   });
 
-  const port = process.env.PORT || 3000;
-  await app.listen(port, '0.0.0.0');
+  await app.init();
 }
-void bootstrap();
+
+export default async function handler(req: Request, res: Response) {
+  if (!isReady) {
+    await bootstrapServer(server);
+    isReady = true;
+  }
+  return server(req, res);
+}

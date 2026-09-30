@@ -6,8 +6,8 @@
     "deleteOutDir": true,
     "assets": [
       {
-        "include": "streams/*.m3u",
-        "outDir": "dist/streams"
+        "include": "database/**/*",
+        "outDir": "dist/database"
       }
     ],
     "watchAssets": true

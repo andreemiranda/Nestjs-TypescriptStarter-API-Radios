@@ -1,76 +1,93 @@
 import { Injectable } from '@nestjs/common';
-import { M3uParser } from './parsers/m3u.parser';
+import { DatabaseLoader } from '../database/database.loader';
 import { Radio, PaginatedRadios, RadioMeta } from './interfaces/radio.interface';
 import { QueryRadiosDto } from './dto/query-radios.dto';
 
-const PLAYLIST_FILE = 'Playlist_Profissional_RadiosWave.m3u';
-
 @Injectable()
 export class RadiosService {
-  private readonly radios: Radio[];
-
-  constructor() {
-    const filePath = M3uParser.resolvePlaylistPath(PLAYLIST_FILE);
-    this.radios = M3uParser.parse(filePath);
-  }
-
   findAll(query: QueryRadiosDto): PaginatedRadios {
-    const filtered = this.applyFilters(query);
+    const radios = DatabaseLoader.loadRadios();
+    const filtered = this.applyFilters(radios, query);
     const sorted = this.applySort(filtered, query);
     const total = sorted.length;
-    const totalPages = Math.max(1, Math.ceil(total / query.limit));
-    const start = (query.page - 1) * query.limit;
-    const data = sorted.slice(start, start + query.limit);
+    const page = query.page || 1;
+    const limit = query.limit || 50;
+    const totalPages = Math.max(1, Math.ceil(total / limit));
+    const start = (page - 1) * limit;
+    const data = sorted.slice(start, start + limit);
 
     return {
       data,
       total,
-      page: query.page,
-      limit: query.limit,
+      page,
+      limit,
       totalPages,
     };
   }
 
   findOne(id: number): Radio | undefined {
-    return this.radios.find((radio) => radio.id === id);
+    const radios = DatabaseLoader.loadRadios();
+    return radios.find((radio) => radio.id === id);
   }
 
   getMeta(): RadioMeta {
-    const states = [...new Set(this.radios.map((r) => r.state).filter(Boolean))].sort(
-      (a, b) => a.localeCompare(b),
-    );
-    const tags = [...new Set(this.radios.flatMap((r) => r.tags))].sort((a, b) =>
-      a.localeCompare(b),
-    );
-    return { states, tags, total: this.radios.length };
+    const radios = DatabaseLoader.loadRadios();
+    const states = [
+      ...new Set(radios.map((r) => r.state).filter(Boolean)),
+    ].sort((a, b) => (a ?? '').localeCompare(b ?? ''));
+
+    const tags = [
+      ...new Set(
+        radios.flatMap((r) => (Array.isArray(r.tags) ? r.tags : [])).filter(Boolean),
+      ),
+    ].sort((a, b) => (a ?? '').localeCompare(b ?? ''));
+
+    return { states, tags, total: radios.length };
   }
 
   findByState(state: string): Radio[] {
+    const radios = DatabaseLoader.loadRadios();
     const normalized = state.trim().toLowerCase();
-    return this.radios.filter((r) => r.state.toLowerCase() === normalized);
-  }
-
-  findByTag(tag: string): Radio[] {
-    const normalized = tag.trim().toLowerCase();
-    return this.radios.filter((r) =>
-      r.tags.some((t) => t.toLowerCase() === normalized),
+    return radios.filter(
+      (r) => (r.state ?? '').trim().toLowerCase() === normalized,
     );
   }
 
-  private applyFilters(query: QueryRadiosDto): Radio[] {
-    return this.radios.filter((radio) => {
+  findByTag(tag: string): Radio[] {
+    const radios = DatabaseLoader.loadRadios();
+    const normalized = tag.trim().toLowerCase();
+    return radios.filter(
+      (r) =>
+        Array.isArray(r.tags) &&
+        r.tags.some((t) => t && t.trim().toLowerCase() === normalized),
+    );
+  }
+
+  private applyFilters(radios: Radio[], query: QueryRadiosDto): Radio[] {
+    return radios.filter((radio) => {
       if (query.state) {
-        if (radio.state.toLowerCase() !== query.state.toLowerCase()) {
+        const radioState = radio.state ?? '';
+        if (radioState.toLowerCase() !== query.state.toLowerCase()) {
           return false;
         }
       }
       if (query.tag) {
-        if (!radio.tags.some((t) => t.toLowerCase() === query.tag!.toLowerCase())) {
+        const radioTags = Array.isArray(radio.tags) ? radio.tags : [];
+        if (
+          !radioTags.some(
+            (t) => t && t.toLowerCase() === query.tag!.toLowerCase(),
+          )
+        ) {
           return false;
         }
       }
       if (query.q) {
-        const haystack = `${radio.name} ${radio.state} ${radio.tags.join(' ')}`.toLowerCase();
+        const radioName = radio.name ?? '';
+        const radioState = radio.state ?? '';
+        const radioTags = Array.isArray(radio.tags)
+          ? radio.tags.join(' ')
+          : '';
+        const haystack = `${radioName} ${radioState} ${radioTags}`.toLowerCase();
         if (!haystack.includes(query.q.toLowerCase())) {
           return false;
         }
@@ -84,9 +101,13 @@ export class RadiosService {
     sorted.sort((a, b) => {
       let cmp = 0;
       if (query.sort === 'id') {
-        cmp = a.id - b.id;
+        const aId = typeof a.id === 'number' ? a.id : 0;
+        const bId = typeof b.id === 'number' ? b.id : 0;
+        cmp = aId - bId;
       } else {
-        cmp = a[query.sort].localeCompare(b[query.sort], 'pt-BR');
+        const aVal = (a[query.sort] ?? '').toString();
+        const bVal = (b[query.sort] ?? '').toString();
+        cmp = aVal.localeCompare(bVal, 'pt-BR');
       }
       return query.order === 'desc' ? -cmp : cmp;
     });

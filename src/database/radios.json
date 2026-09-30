@@ -1,0 +1,2336 @@
+[
+  {
+    "id": 1,
+    "name": "Rádio Olivença FM",
+    "streamUrl": "https://server12.srvsh.com.br:8074/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Bahia",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Rádio Vale FM",
+    "streamUrl": "https://s37.maxcast.com.br:8058/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Rádio Jovem Palmas",
+    "streamUrl": "https://5a2b083e9f360.streamlock.net/aycomau1/aycomau1.stream/playlist.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "jovem"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Rádio HCJB",
+    "streamUrl": "https://streamingecuador.net:8287/hcjb",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Rádio Ativa FM",
+    "streamUrl": "http://servidor33.brlogic.com:8224/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Rádio Paraiso FM",
+    "streamUrl": "https://sonicpanel.oficialserver.com/8112/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "gospel"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Rádio Tocantins PN",
+    "streamUrl": "https://sv1.audiostream.com.br/radio/8040/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "am",
+      "noticias"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Rádio Itatiaia",
+    "streamUrl": "https://8903.brasilstream.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Minas Gerais",
+    "tags": [
+      "noticias",
+      "jornalismo"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Rádio Unitins FM",
+    "streamUrl": "https://live.unitins.br",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "educativa",
+      "fm"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Rádio Porto",
+    "streamUrl": "https://sonicpanel.oficialserver.com:7120/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Rádio Transamérica",
+    "streamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/RT_SPAAC.aac",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "hits",
+      "pop"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Rádio Nacional Brasília 980 AM",
+    "streamUrl": "https://radionacionalbrasilia-stream.ebc.com.br/NACIONAL_AM_BRASILIA-mp4a_212000_eng=20000.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Distrito Federal",
+    "tags": [
+      "am",
+      "noticias",
+      "ebc"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Rádio Nacional da Amazônia OC 11.780 KHZ",
+    "streamUrl": "https://radionacionalamazonia-stream.ebc.com.br/ebc/radionacionalamazonia/NACIONAL_AMAZONIA-mp4a_212000_eng=20000.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Amazonas",
+    "tags": [
+      "onda curta",
+      "noticias",
+      "ebc"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Rádio Nacional da Amazônia OC 6.180 KHZ",
+    "streamUrl": "https://radionacionalamazonia-stream.ebc.com.br/ebc/radionacionalamazonia/NACIONAL_AMAZONIA-mp4a_212000_eng=20000.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Amazonas",
+    "tags": [
+      "onda curta",
+      "noticias",
+      "ebc"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Rádio 106 FM Três Barras",
+    "streamUrl": "https://stm01.virtualcast.com.br:8356/106tresbarras",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Rádio Cidade FM Três Barras do Paraná",
+    "streamUrl": "http://streaming18.hstbr.net:8032/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Paraná",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Rádio Web Parada Universitária",
+    "streamUrl": "https://servidor26-5.brlogic.com:8192/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Paraná",
+    "tags": [
+      "web",
+      "universitaria"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Web Rádio KG Canoinhas",
+    "streamUrl": "https://stm13.xcast.com.br:10672/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Rádio Massa FM Canoinhas",
+    "streamUrl": "http://live.paineldj.com.br:10406/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Rádio 98 FM Canoinhas",
+    "streamUrl": "https://ice.fabricahost.com.br/radio98fm",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Rádio Clube FM Canoinhas",
+    "streamUrl": "https://cast.youngtech.radio.br/radio/8370/radio",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Rádio UNC FM Canoinhas",
+    "streamUrl": "https://web.uncfm.com.br/fmcni",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "educativa"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Rádio Web Space Hits Canoinhas",
+    "streamUrl": "https://stm15.xcast.com.br:8908/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "web",
+      "hits",
+      "pop"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Rádio Web e Jornal Teu Espaço Canoinhas",
+    "streamUrl": "https://stm10.voxhd.com.br:8148/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "web",
+      "noticias"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Rádio Web Jesus Canoinhas",
+    "streamUrl": "https://hts03.brascast.com:9900/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "web",
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Rádio Web Tupinambá Canoinhas",
+    "streamUrl": "https://s01.taaqui.org:8374/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Rádio Jovem Palmas 104.7 FM",
+    "streamUrl": "https://virtues.live:8094/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Rádio Gospel Palmas",
+    "streamUrl": "https://sonicpanel.oficialserver.com/8108/;",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Rádio Capim Dourado FM Palmas",
+    "streamUrl": "https://stm2.voxhd.com.br:13314/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Rádio Sucesso Guaraí",
+    "streamUrl": "https://streaming.livespanel.com:20961/sucessofmto",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Rádio Itamaraty FM Campos Lindos",
+    "streamUrl": "https://sonicpanel.oficialserver.com/8130/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Rádio Miranorte FM",
+    "streamUrl": "https://sonicpanel.oficialserver.com:7133/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Rádio Miracema FM",
+    "streamUrl": "https://sonicpanel.oficialserver.com:7117/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Rádio Tocantins FM Araguaína",
+    "streamUrl": "https://s22.maxcast.com.br:8210/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Rádio Araguaia 99.7 FM Araguaína",
+    "streamUrl": "https://live.ojc.com.br/e9cd_8/myStream/playlist",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Rádio Jovem Gospel FM Araguaína",
+    "streamUrl": "https://servidor26.brlogic.com:8038/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Rádio Cidade 102.1 FM Gurupi",
+    "streamUrl": "https://s40.maxcast.com.br:8024/live?",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Rádio Araguaia 96.7 FM Gurupi",
+    "streamUrl": "https://live.ojc.com.br/e9cd_7/myStream/playlist",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Rádio Tocantins 97.9 FM Gurupi",
+    "streamUrl": "https://wms5.webradios.com.br:19030/9030",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Tocantins",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Mega 96.9 FM",
+    "streamUrl": "https://liveaudio.lamusica.com/NY_WSKQ_icy",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Rádio Clube FM",
+    "streamUrl": "https://sc4s.cdn.upx.com:8069/stream/1/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Rádio Cultura Xaxim",
+    "streamUrl": "https://cast2.youngtech.radio.br/radio/8210/radio",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "104.9 FM Campos Novos",
+    "streamUrl": "https://stream2.svrdedicado.org:8168/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Diamantina FM",
+    "streamUrl": "https://8998.brasilstream.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Minas Gerais",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Silvestre FM 91.1",
+    "streamUrl": "https://9818.brasilstream.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Rádio Alternativa Bauru",
+    "streamUrl": "https://player.xcast.com.br/proxy/7616",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Rádio Cidade Cuité",
+    "streamUrl": "https://8076.brasilstream.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Paraíba",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Canabrava FM",
+    "streamUrl": "https://ssl.xcast.com.br:11406/?type.mp3",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Rádio Rosário 89.7 FM",
+    "streamUrl": "https://vp090.voope.com.br/8050/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Rádio Jota FM",
+    "streamUrl": "https://stream.radiosms.com.br/radio/8090/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Rádio UPE Web",
+    "streamUrl": "https://stm24.xcast.com.br:13296/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Pernambuco",
+    "tags": [
+      "web",
+      "universitaria",
+      "educativa"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Rádio Difusora Jota FM",
+    "streamUrl": "https://stream.radiosms.com.br/radio/8050/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Rádio Trans BJ FM",
+    "streamUrl": "https://srv2.braudio.com.br/sc/7078",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Macaúbas FM",
+    "streamUrl": "https://cast3.hoost.com.br:20009/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Bahia",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Costa Branca FM",
+    "streamUrl": "https://ssl.xcast.com.br:11424/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Rio Grande do Norte",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Rádio Celebration",
+    "streamUrl": "https://player.transmissaodigital.com/proxy/7304/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Cultura FM 97.5",
+    "streamUrl": "https://radio.saopaulo01.com.br:7016/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Rádio Clube Recife AM",
+    "streamUrl": "https://radio.saopaulo01.com.br/8018/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Pernambuco",
+    "tags": [
+      "am",
+      "popular"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Rádio Independência FM",
+    "streamUrl": "https://streaming.radiosenlinea.com.ar/8070/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Rádio Nova Salvador FM",
+    "streamUrl": "https://stream.ouveai.com.br/proxy/novasalvador?mp=/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Bahia",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Jota FM 101.3",
+    "streamUrl": "https://stream.radiosms.com.br/radio/8110/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Rádio Capital FM",
+    "streamUrl": "https://servidor39.brlogic.com:8478/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Rádio Roma FM",
+    "streamUrl": "https://cc6.streammaximum.com/proxy/romafm/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Betel FM 87.9",
+    "streamUrl": "https://stm20.xcast.com.br:7946/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Rádio Antena Sul FM",
+    "streamUrl": "https://5a2b083e9f360.streamlock.net/antenasulfmhd/antenasulfmhd.stream/playlist.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "91 FM Sertaneja",
+    "streamUrl": "https://sc4s.cdn.upx.com:8075/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "sertanejo"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Cristo Rei FM",
+    "streamUrl": "https://servidor35-5.brlogic.com:8216/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "catolica"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Rádio Nova 104.9 FM",
+    "streamUrl": "https://casthttps.suaradionanet.net/10004/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Rádio Caldas 105 FM",
+    "streamUrl": "https://servidor28-5.brlogic.com:8334/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Goiás",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Rádio Pindorama Jota",
+    "streamUrl": "https://stream.radiosms.com.br/radio/8040/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Rádio Caruá FM",
+    "streamUrl": "https://servidor34-1.brlogic.com:8112/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Rádio Rotary FM",
+    "streamUrl": "https://stm3.conectastreaming.com:7088/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Rádio Darcio Rabelo",
+    "streamUrl": "https://s28.maxcast.com.br:8174/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Educadora AM 630",
+    "streamUrl": "https://stm01.virtualcast.com.br:8030/educadoramalrondon",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Mato Grosso",
+    "tags": [
+      "am",
+      "educativa"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Rádio Jota FM 92.3",
+    "streamUrl": "https://painel.radiosms.com.br/8024/stream/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Rádio A Voz do Povo",
+    "streamUrl": "https://wms5.webradios.com.br:19036/9036",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Rádio Educadora",
+    "streamUrl": "https://5a57bda70564a.streamlock.net/educadoraonline/educadoraonline.stream/playlist.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "educativa",
+      "noticias"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Rádio Deus e a Verdade",
+    "streamUrl": "https://s36.maxcast.com.br:8281/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Rádio Contorno FM",
+    "streamUrl": "https://ssl.studiorenascer.com:7006/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Três Lagoas FM",
+    "streamUrl": "https://stream.radiosms.com.br/radio/8180/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Mato Grosso do Sul",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Rádio Rural FM",
+    "streamUrl": "https://stm16.xcast.com.br:9966/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "regional"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Rádio Doce Rio",
+    "streamUrl": "https://hts06.brascast.com:8984/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Rádio Maringá 98.7 FM",
+    "streamUrl": "https://stm1.stmsrv.com:8016/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Paraná",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "RTM 104.7 FM",
+    "streamUrl": "https://radiortm.jmvstream.com/streamstream.nsv&type=aac",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Rádio Catarinense FM",
+    "streamUrl": "https://catarinensefm.streams.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Rádio Mimoso FM",
+    "streamUrl": "https://stm1.painelcast.com:7254/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Rádio Central Jota FM",
+    "streamUrl": "https://stream.radiosms.com.br/radio/8100/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Rádio Independente FM 93.7",
+    "streamUrl": "https://server07.srvsh.com.br:7716/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Rádio Comunitária FM Cidade",
+    "streamUrl": "https://5a57bda70564a.streamlock.net/fmcidadepbhd/fmcidadepbhd.stream/playlist.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Paraíba",
+    "tags": [
+      "fm",
+      "comunitaria"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Rádio Sintonia FM",
+    "streamUrl": "https://9669.brasilstream.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Rádio Comunitária Legal FM",
+    "streamUrl": "https://wms5.webradios.com.br:18938/8938",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "comunitaria"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Rádio Fronteira",
+    "streamUrl": "https://sonicpanel.oficialserver.com/9992/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Rádio Líder FM 87.9",
+    "streamUrl": "https://s23.maxcast.com.br:8284/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Rádio Campo Maior",
+    "streamUrl": "https://streammaior.jmhost.com.br/radio/8010/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Piauí",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Rádio Cidade Polo FM",
+    "streamUrl": "https://stm25.srvaudio.com.br:11732/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Rádio Sanca",
+    "streamUrl": "https://player.xcast.com.br/proxy/11272/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Web Rádio Show",
+    "streamUrl": "https://player.xcast.com.br/proxy/9298",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Rádio Sol FM 98.7",
+    "streamUrl": "https://5a2b083e9f360.streamlock.net/solfm1/solfm1.stream/playlist.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Rádio Cultura 101.1 FM",
+    "streamUrl": "https://cast.hoost.com.br:20153/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Rádio Estação JC",
+    "streamUrl": "https://s42.maxcast.com.br:8224/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 101,
+    "name": "Rádio Cidade FM 95.3",
+    "streamUrl": "https://stm26.srvaudio.com.br:9462/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Rádio Alternativa FM",
+    "streamUrl": "https://ssl.srvstm.com:14582/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Rádio Liderança",
+    "streamUrl": "https://webradio.amsolution.com.br/radio/8320/lideranca",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Rádio FM Liberdade",
+    "streamUrl": "https://8148.brasilstream.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Rádio Coroado FM",
+    "streamUrl": "https://s41.maxcast.com.br:8176/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Amazonas",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Rádio Independência FM 104.9",
+    "streamUrl": "https://sv10.hdradios.net:25380/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Rádio Mar Azul FM",
+    "streamUrl": "https://servidor37-3.brlogic.com:8390/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Web Rádio Jovem",
+    "streamUrl": "https://ssl.xcast.com.br:11096/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 109,
+    "name": "Rádio Clube FM 93.5",
+    "streamUrl": "https://gruporadioclube2.jmvstream.com/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Falcão Líder FM",
+    "streamUrl": "https://sonicpanel.oficialserver.com/8040/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 111,
+    "name": "Rádio Dalila 87.5 FM",
+    "streamUrl": "https://centova4.transmissaodigital.com:20157/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Alpes Rádio",
+    "streamUrl": "https://s13.maxcast.com.br:8162/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 113,
+    "name": "Rádio Fonte e Vida",
+    "streamUrl": "https://wms5.webradios.com.br:19034/9034",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 114,
+    "name": "Rádio Taquarituba FM",
+    "streamUrl": "https://sonicpanel.oficialserver.com/9986/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 115,
+    "name": "Voz da Ilha Itamaracá FM",
+    "streamUrl": "https://player.painelvox.com/player-ssl/8628/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Pernambuco",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 116,
+    "name": "Enseada FM",
+    "streamUrl": "https://stm50.srvstm.com:10106/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 117,
+    "name": "Nova Alternativa Web Rádio",
+    "streamUrl": "https://servidor20.brlogic.com:7078/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 118,
+    "name": "Comunidade FM 104.9",
+    "streamUrl": "https://5a57bda70564a.streamlock.net/cfmmg/cfmmg.stream/playlist.m3u8",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Minas Gerais",
+    "tags": [
+      "fm",
+      "comunitaria"
+    ]
+  },
+  {
+    "id": 119,
+    "name": "Rádio Onda Mix",
+    "streamUrl": "https://stm9.voxhd.com.br:6772/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "pop"
+    ]
+  },
+  {
+    "id": 120,
+    "name": "Rádio Show RP",
+    "streamUrl": "https://stm21.srvaudio.com.br:10482/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 121,
+    "name": "Rádio Campo Alegre",
+    "streamUrl": "https://s45.maxcast.com.br:8054/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Alagoas",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 122,
+    "name": "Rádio Cidade Verde",
+    "streamUrl": "https://ssl1.transmissaodigital.com:20010/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 123,
+    "name": "Rádio Eletro Mix",
+    "streamUrl": "https://player.srvsh.com.br/proxy/7704",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "eletronica"
+    ]
+  },
+  {
+    "id": 124,
+    "name": "Rádio Auxiliadora FM",
+    "streamUrl": "https://wms5.webradios.com.br:18986/8986",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 125,
+    "name": "Rádio A Porta",
+    "streamUrl": "https://player.painelvox.com/player-ssl/6764/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 126,
+    "name": "Rádio Surubim AM",
+    "streamUrl": "https://9567.brasilstream.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Pernambuco",
+    "tags": [
+      "am",
+      "popular"
+    ]
+  },
+  {
+    "id": 127,
+    "name": "Rádio Cuba Mix FM",
+    "streamUrl": "https://servidor27.brlogic.com:8052/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "pop"
+    ]
+  },
+  {
+    "id": 128,
+    "name": "Rádio Inovação FM",
+    "streamUrl": "https://centova4.transmissaodigital.com:20226/stream/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 129,
+    "name": "Rádio Juventude FM",
+    "streamUrl": "https://str02.kfmidia.com.br:6718/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 130,
+    "name": "Rádio Paraitinga FM",
+    "streamUrl": "https://radio.saopaulo01.com.br:10930/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 131,
+    "name": "Rádio Cultura 100.9 FM",
+    "streamUrl": "https://centova.svdns.com.br:20035/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 132,
+    "name": "Rádio Manancial 104.9 FM",
+    "streamUrl": "https://player-ssl.painelstream.net:9928/live/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 133,
+    "name": "Rádio Vida FM 104.9",
+    "streamUrl": "https://stm21.srvaudio.com.br:10956/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 134,
+    "name": "Rádio Metrópole FM 87.9",
+    "streamUrl": "https://cast4.hoost.com.br:20028/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 135,
+    "name": "Rádio Fumec",
+    "streamUrl": "https://centova4.transmissaodigital.com:20058/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Minas Gerais",
+    "tags": [
+      "web",
+      "universitaria",
+      "educativa"
+    ]
+  },
+  {
+    "id": 136,
+    "name": "Rádio Web Amparo Mix",
+    "streamUrl": "https://s37.maxcast.com.br:8938/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "web",
+      "pop"
+    ]
+  },
+  {
+    "id": 137,
+    "name": "Rádio Verona 106.9 FM",
+    "streamUrl": "https://player.srvaudio.com.br/player-ssl/10306/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 138,
+    "name": "Rádio Comunitária Encanto do Planalto",
+    "streamUrl": "https://s11.w3bserver.com/radio/8000/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "comunitaria"
+    ]
+  },
+  {
+    "id": 139,
+    "name": "Rádio Unimontes FM",
+    "streamUrl": "https://s25.maxcast.com.br:8100/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Minas Gerais",
+    "tags": [
+      "fm",
+      "universitaria",
+      "educativa"
+    ]
+  },
+  {
+    "id": 140,
+    "name": "Rede Alternativa FM 106.3",
+    "streamUrl": "https://ssl.xcast.com.br:11720/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 141,
+    "name": "Alternativa 104.9 FM",
+    "streamUrl": "https://ssl.voxhd.com.br:8238/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 142,
+    "name": "Xique News FM",
+    "streamUrl": "https://stm7.xcast.com.br:10628/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Bahia",
+    "tags": [
+      "fm",
+      "noticias"
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Rádio Dynâmica FM",
+    "streamUrl": "https://radio.saopaulo01.com.br:10846/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 144,
+    "name": "Rádio 13 de Maio",
+    "streamUrl": "https://s16.maxcast.com.br:8835/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 145,
+    "name": "Rádio Nova FM Goiana",
+    "streamUrl": "https://stm9.srvvox.com.br:7744/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Pernambuco",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 146,
+    "name": "Rádio Santa Rita FM",
+    "streamUrl": "https://player.audiovox.pw/proxy/6738",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 147,
+    "name": "Rádio Itaoca",
+    "streamUrl": "https://stm3.xcast.com.br:11040/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 148,
+    "name": "Rádio Serrote FM",
+    "streamUrl": "https://ssl.studiorenascer.com:7124/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Alagoas",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 149,
+    "name": "Rádio Liberdade Poté",
+    "streamUrl": "https://casthttps1.suaradionanet.net/13421/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Minas Gerais",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 150,
+    "name": "Rádio Comunitária 87.9 FM",
+    "streamUrl": "https://streaming.speedrs.com.br/radio/8000/comunitaria",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "comunitaria"
+    ]
+  },
+  {
+    "id": 151,
+    "name": "Web Rádio Essencial",
+    "streamUrl": "https://player.srvsh.com.br/proxy/6750",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 152,
+    "name": "WebRádio Moto Notícia",
+    "streamUrl": "https://player.painelvox.com/player-ssl/28748/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "noticias"
+    ]
+  },
+  {
+    "id": 153,
+    "name": "Rádio Boca da Mata FM",
+    "streamUrl": "https://servidor37-5.brlogic.com:8382/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Alagoas",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 154,
+    "name": "Rádio Brasil FM 98.5",
+    "streamUrl": "https://stm1.matutos.com.br:8072/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 155,
+    "name": "Rádio 94POP FM",
+    "streamUrl": "https://radiosocorro.jmvstream.com/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "pop"
+    ]
+  },
+  {
+    "id": 156,
+    "name": "Rádio Sideral 98.1 FM",
+    "streamUrl": "https://r17.ciclano.io/proxy/radio98fm/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 157,
+    "name": "Rádio Carinho FM",
+    "streamUrl": "https://ssl.xcast.com.br:7802/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 158,
+    "name": "Rádio Líder Centro FM",
+    "streamUrl": "https://stm27.srvaudio.com.br:10046/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 159,
+    "name": "Tropical FM 87.5",
+    "streamUrl": "https://streaming.mpxwebradio.com/listen/tropicalfm/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 160,
+    "name": "Rádio Paiaguás Jota FM",
+    "streamUrl": "https://stream.radiosms.com.br/radio/8120/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Mato Grosso",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 161,
+    "name": "Rádio Educadora de Belém",
+    "streamUrl": "https://stm1.matutos.com.br:9272/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Pará",
+    "tags": [
+      "am",
+      "educativa"
+    ]
+  },
+  {
+    "id": 162,
+    "name": "Liberal FM 87.9",
+    "streamUrl": "https://s43.maxcast.com.br:8052/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 163,
+    "name": "Rádio Jornal da Manhã",
+    "streamUrl": "https://centova4.transmissaodigital.com:20066/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "noticias"
+    ]
+  },
+  {
+    "id": 164,
+    "name": "Rádio Tropical Original Web",
+    "streamUrl": "https://casthttps1.suaradionanet.net/10632/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 165,
+    "name": "Rádio Piratininga",
+    "streamUrl": "https://str1.streamhostpg.com.br:8052/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 166,
+    "name": "Rádio Terra FM 87.9",
+    "streamUrl": "https://servidor35-4.brlogic.com:8208/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 167,
+    "name": "Rádio Santa Luz FM",
+    "streamUrl": "https://cast3.hoost.com.br:20040/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Bahia",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 168,
+    "name": "Buriti FM 87.9",
+    "streamUrl": "https://player.painelvox.com/player-ssl/8058",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Maranhão",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 169,
+    "name": "Rádio Suzukysat",
+    "streamUrl": "https://player.stms.live/proxy/8456",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 170,
+    "name": "Rádio Alvorada do Sertão – Rede Emersat",
+    "streamUrl": "https://stm25.xcast.com.br:9524/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "sertanejo",
+      "regional"
+    ]
+  },
+  {
+    "id": 171,
+    "name": "Sucesso FM 87.5",
+    "streamUrl": "https://servidor38-2.brlogic.com:8076/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 172,
+    "name": "Rádio Volt 87.9 FM",
+    "streamUrl": "https://stm16.srvstm.com:7664/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 173,
+    "name": "Rádio Giruá FM 102.9",
+    "streamUrl": "https://servidor25-1.brlogic.com:8018/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Rio Grande do Sul",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 174,
+    "name": "Rádio Liberal 99.5",
+    "streamUrl": "https://casthttps.suaradionanet.net/10818/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 175,
+    "name": "NovaFM 103.9",
+    "streamUrl": "https://stm01.virtualcast.com.br:8264/novaindaial",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 176,
+    "name": "Web Rádio AECX",
+    "streamUrl": "https://stm27.xcast.com.br:8950/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 177,
+    "name": "Rádio Teixeiras FM 87.9",
+    "streamUrl": "https://player.stream2.com.br/proxy/8214",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Minas Gerais",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 178,
+    "name": "Rádio Vila Feliz",
+    "streamUrl": "https://srv3.braudio.com.br:7232/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 179,
+    "name": "Clube FM 94.9",
+    "streamUrl": "https://player.painelvox.com/player-ssl/6766/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 180,
+    "name": "Rádio Balneário FM",
+    "streamUrl": "https://streaming.ebamix.com.br/radio/8020/radio.mp3",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Santa Catarina",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 181,
+    "name": "Itapicuru FM 104.9",
+    "streamUrl": "https://player.studiorenascer.com/proxy/7066",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Bahia",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 182,
+    "name": "Rádio Esperança 87.9 FM",
+    "streamUrl": "https://03.painelstreaming.com.br:27206/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 183,
+    "name": "Web Rádio 50",
+    "streamUrl": "https://live8.livemus.com.br:27152/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 184,
+    "name": "Rádio Sementes de Mentes",
+    "streamUrl": "https://streaming.studioshopping.com.br/listen/radio_sementes_de_mentes/radio",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 185,
+    "name": "Rádio Millenium FM 87.9",
+    "streamUrl": "https://stm2.streamproarte.com.br:7480/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 186,
+    "name": "Rádio Florestal FM",
+    "streamUrl": "https://sv14.hdradios.net:8238/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Minas Gerais",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 187,
+    "name": "Rádio Sertões FM",
+    "streamUrl": "https://server3.webradios.com.br:19348/9348",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "sertanejo",
+      "regional"
+    ]
+  },
+  {
+    "id": 188,
+    "name": "Eldorado Nova",
+    "streamUrl": "https://paineldj6.com.br:20025/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 189,
+    "name": "Let the Music Radio",
+    "streamUrl": "https://ssl.srvstm.com:9688/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "pop"
+    ]
+  },
+  {
+    "id": 190,
+    "name": "Rádio Virtuall News",
+    "streamUrl": "https://player-ssl.painelstream.net:8204/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "noticias"
+    ]
+  },
+  {
+    "id": 191,
+    "name": "Rádio Mais FM",
+    "streamUrl": "https://whd1.webradios.com.br:18512/8512",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 192,
+    "name": "Rádio Nove",
+    "streamUrl": "https://servidor22.brlogic.com:7050/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 193,
+    "name": "Rádio NDFM",
+    "streamUrl": "https://superaudio.radio.br/radio/8070/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 194,
+    "name": "Rádio Web Tirol",
+    "streamUrl": "https://paineldj5.com.br:20076/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 195,
+    "name": "Rádio Aliança FM 98.5",
+    "streamUrl": "https://player.srvstm.com/proxy/9222",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 196,
+    "name": "Rádio Vale do Piauí FM",
+    "streamUrl": "https://webradio.amsolution.com.br/radio/8330/vale97",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Piauí",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 197,
+    "name": "Rádio Voz do Vale FM",
+    "streamUrl": "https://streaming.radionomy.com/JamendoLounge",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  },
+  {
+    "id": 198,
+    "name": "Integração 102.3 FM",
+    "streamUrl": "https://cast3.hoost.com.br:8241/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 199,
+    "name": "Rádio Amaraji FM 98.5",
+    "streamUrl": "https://stm1.aovivodigital.com.br:10724/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Pernambuco",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 200,
+    "name": "Tempos Radiante Web Rádio",
+    "streamUrl": "https://s44.maxcast.com.br:8072/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 201,
+    "name": "Rádio Avante",
+    "streamUrl": "https://stm17.xcast.com.br:8202/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 202,
+    "name": "Serrana FM 91.3",
+    "streamUrl": "https://rvn01.painelstream.net:9278/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 203,
+    "name": "Rádio União FM",
+    "streamUrl": "https://stm1.pluscast.com.br:7144/",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 204,
+    "name": "Rádio Forró Mix",
+    "streamUrl": "https://8332.brasilstream.com.br/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "forro",
+      "regional"
+    ]
+  },
+  {
+    "id": 205,
+    "name": "Cultura FM 95.5",
+    "streamUrl": "https://paineldj5.com.br:20040/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 206,
+    "name": "Visão FM 104.9",
+    "streamUrl": "https://whd1.webradios.com.br:18598/8598",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "gospel",
+      "evangelica"
+    ]
+  },
+  {
+    "id": 207,
+    "name": "Mídia FM Socorro",
+    "streamUrl": "https://sv16.hdradios.net:8242/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "São Paulo",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 208,
+    "name": "Rádio Cidade Tabira FM",
+    "streamUrl": "https://s18.maxcast.com.br:8545/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Pernambuco",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 209,
+    "name": "Rádio Acesa 87.5 FM",
+    "streamUrl": "https://stream.hospedandosites.com.br/8084/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 210,
+    "name": "Rádio FM Terra",
+    "streamUrl": "https://servidor30.brlogic.com:8622/live",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Brasil",
+    "tags": [
+      "fm",
+      "popular"
+    ]
+  },
+  {
+    "id": 211,
+    "name": "Rádio Serra Branca Web",
+    "streamUrl": "https://stm45.srvstm.com:19104/stream",
+    "logo": "https://radioswave.netlify.app/icon-192x192.png",
+    "state": "Paraíba",
+    "tags": [
+      "web",
+      "popular"
+    ]
+  }
+]

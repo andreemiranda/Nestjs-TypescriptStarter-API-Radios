@@ -1,0 +1,4 @@
+{
+  "name": "RadiosWave API",
+  "description": "NestJS TypeScript API providing streaming access and catalog queries for Brazilian radio stations from a real-time JSON database with Swagger UI."
+}

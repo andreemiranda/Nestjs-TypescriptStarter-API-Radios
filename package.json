@@ -5,9 +5,11 @@
   "description": "Nest TypeScript starter repository",
   "license": "MIT",
   "scripts": {
+    "dev": "nest start --watch",
     "build": "nest build",
+    "postbuild": "node -e \"const fs = require('fs'); const path = require('path'); const src = path.join('src', 'database'); const dest = path.join('dist', 'database'); if (fs.existsSync(src)) { fs.mkdirSync(dest, { recursive: true }); fs.copyFileSync(path.join(src, 'radios.json'), path.join(dest, 'radios.json')); }\"",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "node dist/main",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -24,9 +26,15 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.17",
+    "@nestjs/config": "^4.0.0",
     "@nestjs/core": "^11.0.1",
     "@nestjs/platform-express": "^11.1.11",
+    "@nestjs/swagger": "^11.4.7",
+    "@nestjs/throttler": "^6.7.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
     "dotenv": "^17.4.2",
+    "helmet": "^8.3.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },
@@ -73,11 +81,5 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@nestjs/core",
-      "@swc/core"
-    ]
   }
 }
