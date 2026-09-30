@@ -5,12 +5,20 @@ import { Radio } from '../radios/interfaces/radio.interface';
 
 export class DatabaseLoader {
   static resolveDatabasePath(): string {
+    if (
+      process.env.RADIOS_DB_PATH &&
+      fs.existsSync(process.env.RADIOS_DB_PATH)
+    ) {
+      return process.env.RADIOS_DB_PATH;
+    }
+
     const candidates = [
       path.join(__dirname, 'radios.json'),
       path.join(__dirname, '..', 'database', 'radios.json'),
       path.join(__dirname, '..', '..', 'src', 'database', 'radios.json'),
       path.join(process.cwd(), 'src', 'database', 'radios.json'),
       path.join(process.cwd(), 'dist', 'database', 'radios.json'),
+      path.join(process.cwd(), 'dist', 'src', 'database', 'radios.json'),
       path.join(process.cwd(), 'database', 'radios.json'),
     ];
 

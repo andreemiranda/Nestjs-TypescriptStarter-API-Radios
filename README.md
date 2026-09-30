@@ -18,19 +18,30 @@ API REST moderna desenvolvida em **NestJS** e **TypeScript** que fornece catálo
 
 ## ⚙️ Variáveis de Ambiente
 
-Crie um arquivo `.env` na raiz do projeto (já configurado no `.gitignore`):
+Crie um arquivo `.env` na raiz do projeto para desenvolvimento local (já configurado no `.gitignore`):
 
 ```env
+NODE_ENV=production
+PORT=3000
 API_KEY=<sua-chave-secreta-de-64-caracteres>
-PORT=3000
+CORS_ORIGIN=*
+THROTTLE_TTL=60000
+THROTTLE_LIMIT=120
+SWAGGER_ENABLED=true
 ```
 
-Um modelo limpo sem segredos está disponível em `.env.example`:
+### Relação Completa de Variáveis de Ambiente:
 
-```env
-API_KEY=
-PORT=3000
-```
+| Variável | Tipo | Padrão | Obrigatória? | Descrição |
+|---|---|---|---|---|
+| `API_KEY` | String | *(nenhum)* | **Sim (em Produção)** | Chave secreta de autenticação para as rotas protegidas (`/api/radios/*`). Aceita via cabeçalho `X-API-Key` ou query string `?API_KEY=<chave>`. |
+| `NODE_ENV` | String | `development` | Não | Define o ambiente de execução (`production`, `development`, `test`). Em produção, oculta mensagens de erro internas. |
+| `PORT` | Número | `3000` | Não | Porta TCP em que o servidor HTTP aceita conexões. |
+| `CORS_ORIGIN` | String | `*` | Não | Origens permitidas para requisições cross-origin (ex: `https://meuapp.com` ou múltiplas separadas por vírgula). |
+| `THROTTLE_TTL` | Número | `60000` | Não | Janela de tempo do Rate Limiter em milissegundos (60000 ms = 60 segundos). |
+| `THROTTLE_LIMIT` | Número | `120` | Não | Quantidade máxima de requisições por IP permitidas na janela do Rate Limiter. |
+| `SWAGGER_ENABLED` | Booleano | `true` | Não | Habilita (`true`) ou desabilita (`false`) a interface Swagger UI na raiz (`/`). |
+| `RADIOS_DB_PATH` | String | *(automático)* | Não | Caminho absoluto ou relativo para um arquivo `radios.json` customizado (ex: volume montado em container). |
 
 ### Gerando uma Nova Chave de API Forte
 
@@ -40,7 +51,7 @@ Você pode gerar uma chave criptograficamente segura via Node.js:
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
-> **Atenção:** Em ambientes de produção (como na **Vercel**), a variável de ambiente `API_KEY` deve ser adicionada diretamente no painel do provedor (aba *Settings > Environment Variables*), pois arquivos `.env` locais não são versionados nem enviados no deploy.
+> **Atenção:** Em plataformas de nuvem (como **Vercel**, Docker ou Kubernetes), cadastre as variáveis de ambiente diretamente nas configurações do provedor, pois o arquivo `.env` local nunca deve ser versionado.
 
 ---
 
@@ -115,9 +126,9 @@ curl -H "X-API-Key: SUA_CHAVE" \
 curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&order=asc"
 ```
 
-### 4. Buscar Rádio por ID
+### 4. Buscar Rádio por ID (14 dígitos sem dígito 0)
 ```bash
-curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios/1"
+curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios/11111111111111"
 ```
 
 ---

@@ -12,12 +12,18 @@ import { RadiosModule } from './radios/radios.module';
       isGlobal: true,
       envFilePath: ['.env'],
     }),
-    ThrottlerModule.forRoot([
-      {
-        ttl: 60000,
-        limit: 120,
-      },
-    ]),
+    ThrottlerModule.forRootAsync({
+      useFactory: () => [
+        {
+          ttl: process.env.THROTTLE_TTL
+            ? parseInt(process.env.THROTTLE_TTL, 10)
+            : 60000,
+          limit: process.env.THROTTLE_LIMIT
+            ? parseInt(process.env.THROTTLE_LIMIT, 10)
+            : 120,
+        },
+      ],
+    }),
     RadiosModule,
   ],
   controllers: [AppController],

@@ -18,6 +18,7 @@ import { RadiosService } from './radios.service';
 import { QueryRadiosDto } from './dto/query-radios.dto';
 import { ApiKeyGuard } from '../common/guards/api-key.guard';
 import { cleanParam } from '../common/utils/sanitize.util';
+import { isValid14DigitId } from '../common/utils/id.util';
 
 @ApiTags('Radios')
 @ApiSecurity('X-API-Key')
@@ -37,7 +38,10 @@ export class RadiosController {
   })
   @ApiResponse({ status: 400, description: 'Parâmetros de query inválidos' })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
-  @ApiResponse({ status: 503, description: 'API Key não configurada no servidor' })
+  @ApiResponse({
+    status: 503,
+    description: 'API Key não configurada no servidor',
+  })
   findAll(@Query() query: QueryRadiosDto) {
     return this.radiosService.findAll(query);
   }
@@ -107,28 +111,33 @@ export class RadiosController {
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Buscar estação de rádio por identificador ID' })
+  @ApiOperation({
+    summary: 'Buscar estação de rádio por identificador ID de 14 dígitos',
+  })
   @ApiParam({
     name: 'id',
-    description: 'ID numérico da estação de rádio',
-    example: 1,
+    description:
+      'ID numérico de 14 dígitos (sem dígito 0 e sem dígitos repetidos consecutivamente)',
+    example: '49639317164246',
   })
   @ApiResponse({ status: 200, description: 'Detalhes da estação de rádio' })
-  @ApiResponse({ status: 400, description: 'ID inválido (não numérico)' })
+  @ApiResponse({
+    status: 400,
+    description:
+      'ID inválido (deve possuir 14 dígitos, sem 0 e sem dígitos repetidos consecutivamente)',
+  })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
   @ApiResponse({ status: 404, description: 'Estação de rádio não encontrada' })
   findOne(@Param('id') id: string) {
-    const numericId = parseInt(id, 10);
-    if (
-      Number.isNaN(numericId) ||
-      numericId <= 0 ||
-      numericId > 2147483647
-    ) {
-      throw new BadRequestException('id must be a number');
+    if (!isValid14DigitId(id)) {
+      throw new BadRequestException(
+        'O parâmetro ID deve possuir 14 dígitos, sem o dígito zero (0) e sem dígitos repetidos consecutivamente',
+      );
     }
+    const numericId = Number(id);
     const radio = this.radiosService.findOne(numericId);
     if (!radio) {
-      throw new NotFoundException(`Radio with id ${numericId} not found`);
+      throw new NotFoundException(`Radio with id ${id} not found`);
     }
     return radio;
   }

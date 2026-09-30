@@ -147,7 +147,7 @@ curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&orde
 {
   "data": [
     {
-      "id": 1,
+      "id": 11111111111111,
       "name": "Rádio Olivença FM",
       "streamUrl": "https://server12.srvsh.com.br:8074/stream",
       "logo": "https://radioswave.netlify.app/icon-192x192.png",
@@ -168,11 +168,11 @@ curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&orde
 - **Método:** `GET`
 - **Rota:** `/api/radios/:id`
 - **Autenticação:** Obrigatória.
-- **Parâmetros de Rota:** `id` (inteiro positivo).
+- **Parâmetros de Rota:** `id` (número com exatamente 14 dígitos e nenhum dígito zero `0`, ex: `11111111111111`).
 - **Resposta Sucesso (`200 OK`):**
   ```json
   {
-    "id": 1,
+    "id": 11111111111111,
     "name": "Rádio Olivença FM",
     "streamUrl": "https://server12.srvsh.com.br:8074/stream",
     "logo": "https://radioswave.netlify.app/icon-192x192.png",
@@ -181,7 +181,7 @@ curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&orde
   }
   ```
 - **Respostas de Erro:**
-  - `400 Bad Request` se `id` não for numérico.
+  - `400 Bad Request` se `id` não possuir 14 dígitos ou contiver o dígito `0`.
   - `404 Not Found` se o ID não existir no banco.
 
 ---

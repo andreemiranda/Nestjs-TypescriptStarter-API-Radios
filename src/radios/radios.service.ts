@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseLoader } from '../database/database.loader';
-import { Radio, PaginatedRadios, RadioMeta } from './interfaces/radio.interface';
+import {
+  Radio,
+  PaginatedRadios,
+  RadioMeta,
+} from './interfaces/radio.interface';
 import { QueryRadiosDto } from './dto/query-radios.dto';
 
 @Injectable()
@@ -25,9 +29,13 @@ export class RadiosService {
     };
   }
 
-  findOne(id: number): Radio | undefined {
+  findOne(id: number | string): Radio | undefined {
     const radios = DatabaseLoader.loadRadios();
-    return radios.find((radio) => radio.id === id);
+    const strId = id.toString();
+    const numId = Number(id);
+    return radios.find(
+      (radio) => radio.id === numId || radio.id.toString() === strId,
+    );
   }
 
   getMeta(): RadioMeta {
@@ -38,7 +46,9 @@ export class RadiosService {
 
     const tags = [
       ...new Set(
-        radios.flatMap((r) => (Array.isArray(r.tags) ? r.tags : [])).filter(Boolean),
+        radios
+          .flatMap((r) => (Array.isArray(r.tags) ? r.tags : []))
+          .filter(Boolean),
       ),
     ].sort((a, b) => (a ?? '').localeCompare(b ?? ''));
 
@@ -75,7 +85,7 @@ export class RadiosService {
         const radioTags = Array.isArray(radio.tags) ? radio.tags : [];
         if (
           !radioTags.some(
-            (t) => t && t.toLowerCase() === query.tag!.toLowerCase(),
+            (t) => t && t.toLowerCase() === query.tag.toLowerCase(),
           )
         ) {
           return false;
@@ -84,10 +94,10 @@ export class RadiosService {
       if (query.q) {
         const radioName = radio.name ?? '';
         const radioState = radio.state ?? '';
-        const radioTags = Array.isArray(radio.tags)
-          ? radio.tags.join(' ')
-          : '';
-        const haystack = `${radioName} ${radioState} ${radioTags}`.toLowerCase();
+        const radioTags = Array.isArray(radio.tags) ? radio.tags.join(' ') : '';
+        const radioId = radio.id ? radio.id.toString() : '';
+        const haystack =
+          `${radioName} ${radioState} ${radioTags} ${radioId}`.toLowerCase();
         if (!haystack.includes(query.q.toLowerCase())) {
           return false;
         }
@@ -101,8 +111,8 @@ export class RadiosService {
     sorted.sort((a, b) => {
       let cmp = 0;
       if (query.sort === 'id') {
-        const aId = typeof a.id === 'number' ? a.id : 0;
-        const bId = typeof b.id === 'number' ? b.id : 0;
+        const aId = typeof a.id === 'number' ? a.id : Number(a.id) || 0;
+        const bId = typeof b.id === 'number' ? b.id : Number(b.id) || 0;
         cmp = aId - bId;
       } else {
         const aVal = (a[query.sort] ?? '').toString();
