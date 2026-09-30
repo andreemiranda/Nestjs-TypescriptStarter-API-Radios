@@ -96,6 +96,51 @@ describe('Radios API (e2e)', () => {
     expect(res.body.data.length).toBe(5);
   });
 
+  it('/api/radios?page=2 (GET) returns second page of radios', async () => {
+    const resPage1 = await request(app.getHttpServer())
+      .get('/api/radios?page=1&limit=50')
+      .set('X-API-Key', validKey)
+      .expect(200);
+
+    const resPage2 = await request(app.getHttpServer())
+      .get('/api/radios?page=2&limit=50')
+      .set('X-API-Key', validKey)
+      .expect(200);
+
+    expect(resPage2.body.page).toBe(2);
+    expect(resPage2.body.limit).toBe(50);
+    expect(resPage2.body.data.length).toBe(50);
+    expect(resPage2.body.data[0].id).not.toBe(resPage1.body.data[0].id);
+  });
+
+  it('/api/radios with per_page query param sets page size', async () => {
+    const res = await request(app.getHttpServer())
+      .get('/api/radios?page=2&per_page=15')
+      .set('X-API-Key', validKey)
+      .expect(200);
+
+    expect(res.body.page).toBe(2);
+    expect(res.body.limit).toBe(15);
+    expect(res.body.data.length).toBe(15);
+  });
+
+  it('/api/radios/page/:page (GET) returns radios directly from route path', async () => {
+    const res = await request(app.getHttpServer())
+      .get(`/api/radios/page/2?API_KEY=${validKey}`)
+      .expect(200);
+
+    expect(res.body.page).toBe(2);
+    expect(res.body.limit).toBe(50);
+    expect(res.body.data.length).toBe(50);
+  });
+
+  it('/api/radios/page/invalid-page returns 400', async () => {
+    await request(app.getHttpServer())
+      .get('/api/radios/page/abc')
+      .set('X-API-Key', validKey)
+      .expect(400);
+  });
+
   it('/api/radios returns 503 when API_KEY is not configured on server', async () => {
     const saved = process.env.API_KEY;
     const savedSys = process.env.SYSTEM_API_KEY;
@@ -122,7 +167,8 @@ describe('Radios API (e2e)', () => {
 
     expect(res.body.data.length).toBeGreaterThan(0);
     for (const radio of res.body.data) {
-      const combined = `${radio.name} ${radio.state} ${radio.tags?.join(' ')}`.toLowerCase();
+      const combined =
+        `${radio.name} ${radio.state} ${radio.tags?.join(' ')}`.toLowerCase();
       expect(combined).toContain('palmas');
     }
   });

@@ -14,8 +14,13 @@ export class RadiosService {
     const filtered = this.applyFilters(radios, query);
     const sorted = this.applySort(filtered, query);
     const total = sorted.length;
-    const page = query.page || 1;
-    const limit = query.limit || 50;
+    const page = query.page && query.page > 0 ? query.page : 1;
+    const limit =
+      query.per_page && query.per_page > 0
+        ? query.per_page
+        : query.limit && query.limit > 0
+          ? query.limit
+          : 50;
     const totalPages = Math.max(1, Math.ceil(total / limit));
     const start = (page - 1) * limit;
     const data = sorted.slice(start, start + limit);

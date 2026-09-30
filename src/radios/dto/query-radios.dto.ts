@@ -62,7 +62,7 @@ export class QueryRadiosDto {
   page: number = 1;
 
   @ApiPropertyOptional({
-    description: 'Quantidade de estações por página (máximo 500)',
+    description: 'Quantidade de estações por página (padrão: 50, máximo: 500)',
     default: 50,
     minimum: 1,
     maximum: 500,
@@ -73,6 +73,20 @@ export class QueryRadiosDto {
   @Min(1)
   @Max(500)
   limit: number = 50;
+
+  @ApiPropertyOptional({
+    description:
+      'Alias para limit: quantidade de estações por página (padrão: 50, máximo: 500)',
+    example: 50,
+    minimum: 1,
+    maximum: 500,
+  })
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  @Max(500)
+  per_page?: number;
 
   @ApiPropertyOptional({
     description: 'Campo de ordenação',

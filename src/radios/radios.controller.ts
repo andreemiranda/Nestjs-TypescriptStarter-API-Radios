@@ -110,6 +110,34 @@ export class RadiosController {
     return { data: result, total: result.length };
   }
 
+  @Get('page/:page')
+  @ApiOperation({
+    summary: 'Acessar rádios paginadas diretamente pelo número da página no caminho da URL',
+  })
+  @ApiParam({
+    name: 'page',
+    description: 'Número da página (1, 2, 3, etc.)',
+    example: '2',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Lista paginada de rádios da página informada',
+  })
+  @ApiResponse({ status: 400, description: 'Número de página inválido' })
+  @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
+  findByPage(
+    @Param('page') pageParam: string,
+    @Query() query: QueryRadiosDto,
+  ) {
+    const pageNum = parseInt(pageParam, 10);
+    if (Number.isNaN(pageNum) || pageNum < 1 || pageNum > 10000) {
+      throw new BadRequestException(
+        'O parâmetro page deve ser um número inteiro positivo (mínimo 1)',
+      );
+    }
+    return this.radiosService.findAll({ ...query, page: pageNum });
+  }
+
   @Get(':id')
   @ApiOperation({
     summary: 'Buscar estação de rádio por identificador ID de 14 dígitos',

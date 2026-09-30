@@ -92,6 +92,7 @@ Para a documentação completa de esquemas e códigos de status, consulte [docs/
 | `GET` | `/api/health` | Pública | Verificação de status e saúde do serviço |
 | `GET` | `/api/info` | Pública | Metadados e catálogo de endpoints |
 | `GET` | `/api/radios` | `X-API-Key` ou `?API_KEY=` | Listagem paginada com busca, filtros e ordenação |
+| `GET` | `/api/radios/page/:page` | `X-API-Key` ou `?API_KEY=` | Acesso direto às páginas (ex: `/api/radios/page/2`) |
 | `GET` | `/api/radios/:id` | `X-API-Key` ou `?API_KEY=` | Busca estação pelo ID numérico |
 | `GET` | `/api/radios/meta` | `X-API-Key` ou `?API_KEY=` | Lista de estados, tags e totalizador |
 | `GET` | `/api/radios/states` | `X-API-Key` ou `?API_KEY=` | Lista de estados disponíveis |
@@ -128,8 +129,146 @@ curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&orde
 
 ### 4. Buscar Rádio por ID (14 dígitos sem dígito 0)
 ```bash
-curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios/11111111111111"
+curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios/49639317164246"
 ```
+
+---
+
+## 📄 Guia de Paginação e Estrutura de URLs com API Key
+
+Por padrão, o endpoint `/api/radios` retorna **50 rádios por página** para garantir respostas ultrarrápidas e baixo consumo de banda.
+
+Como o catálogo possui **211 rádios**, o resultado completo está dividido em **5 páginas** (`totalPages: 5`):
+- **Página 1:** Rádios 1 a 50
+- **Página 2:** Rádios 51 a 100
+- **Página 3:** Rádios 101 a 150
+- **Página 4:** Rádios 151 a 200
+- **Página 5:** Rádios 201 a 211
+
+Você pode navegar pelas páginas de **três formas diferentes**, com autenticação via Query String (`?API_KEY=...`) ou via Cabeçalho (`X-API-Key: ...`):
+
+---
+
+### Opção 1: Via Parâmetro de Query `?page=` (Padrão REST)
+
+Basta adicionar o parâmetro `page=<número>` na URL:
+
+#### 🌐 No Navegador / Web (com API Key na URL):
+```text
+https://seu-dominio.vercel.app/api/radios?page=2&API_KEY=SUA_CHAVE
+https://seu-dominio.vercel.app/api/radios?page=3&API_KEY=SUA_CHAVE
+https://seu-dominio.vercel.app/api/radios?page=4&API_KEY=SUA_CHAVE
+https://seu-dominio.vercel.app/api/radios?page=5&API_KEY=SUA_CHAVE
+```
+
+#### 💻 Via cURL (Terminal):
+```bash
+# Acessar a página 2 com API Key na URL
+curl "http://localhost:3000/api/radios?page=2&API_KEY=SUA_CHAVE"
+
+# Ou com o cabeçalho X-API-Key
+curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios?page=2"
+```
+
+---
+
+### Opção 2: Via Rota Direta `/api/radios/page/:page`
+
+Se você preferir uma estrutura de caminho amigável diretamente na URL, utilize a rota `/api/radios/page/<número>`:
+
+#### 🌐 No Navegador / Web (com API Key na URL):
+```text
+https://seu-dominio.vercel.app/api/radios/page/2?API_KEY=SUA_CHAVE
+https://seu-dominio.vercel.app/api/radios/page/3?API_KEY=SUA_CHAVE
+https://seu-dominio.vercel.app/api/radios/page/4?API_KEY=SUA_CHAVE
+https://seu-dominio.vercel.app/api/radios/page/5?API_KEY=SUA_CHAVE
+```
+
+#### 💻 Via cURL (Terminal):
+```bash
+# Acessar a página 2 diretamente pelo caminho da URL
+curl "http://localhost:3000/api/radios/page/2?API_KEY=SUA_CHAVE"
+
+# Ou com cabeçalho X-API-Key
+curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios/page/2"
+```
+
+---
+
+### Opção 3: Alterar o Tamanho da Página com `limit` ou `per_page`
+
+Você pode controlar quantas rádios vêm em cada página usando os parâmetros `limit` ou `per_page` (máximo permitido: **500 estações por página**):
+
+#### Exemplos com `per_page` ou `limit`:
+```text
+# Trazer 20 rádios na página 2
+https://seu-dominio.vercel.app/api/radios?page=2&per_page=20&API_KEY=SUA_CHAVE
+
+# Trazer 100 rádios na página 1
+https://seu-dominio.vercel.app/api/radios?page=1&limit=100&API_KEY=SUA_CHAVE
+```
+
+---
+
+### 🚀 Dica: Como Obter TODAS as Rádios de Uma Vez (Sem Paginar)
+
+Se a sua aplicação precisa carregar todas as rádios em uma única requisição, basta definir `limit=500` (ou `per_page=500`):
+
+```text
+https://seu-dominio.vercel.app/api/radios?limit=500&API_KEY=SUA_CHAVE
+```
+
+```bash
+curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios?limit=500"
+```
+> Como o banco possui 211 rádios e o limite máximo suportado é 500, essa requisição devolverá o catálogo completo de uma só vez!
+
+---
+
+### 🧩 Combinando Paginação com Filtros e Ordenação
+
+Todos os filtros funcionam em conjunto com a paginação:
+
+```text
+# Rádios do estado da Bahia, página 1, 10 por página, com API Key:
+https://seu-dominio.vercel.app/api/radios?state=Bahia&page=1&per_page=10&API_KEY=SUA_CHAVE
+
+# Busca textual "FM", página 2, ordenada por nome:
+https://seu-dominio.vercel.app/api/radios?q=FM&page=2&sort=name&order=asc&API_KEY=SUA_CHAVE
+
+# Rádios de gênero "popular", página 3:
+https://seu-dominio.vercel.app/api/radios?tag=popular&page=3&API_KEY=SUA_CHAVE
+```
+
+---
+
+### 📦 Estrutura do Objeto de Resposta Paginada
+
+Toda requisição paginada devolve os metadados para que o seu frontend/app monte a navegação:
+
+```json
+{
+  "data": [
+    {
+      "id": 49639317164246,
+      "name": "Rádio Olivença FM",
+      "streamUrl": "https://server12.srvsh.com.br:8074/stream",
+      "logo": "https://radioswave.netlify.app/icon-192x192.png",
+      "state": "Bahia",
+      "tags": ["fm", "popular"]
+    }
+  ],
+  "total": 211,
+  "page": 2,
+  "limit": 50,
+  "totalPages": 5
+}
+```
+
+- **`total`**: Quantidade total de rádios cadastradas (ou correspondentes aos filtros aplicados).
+- **`page`**: Número da página atual que você está visualizando.
+- **`limit`**: Quantidade máxima de itens desta página.
+- **`totalPages`**: Quantidade total de páginas disponíveis.
 
 ---
 

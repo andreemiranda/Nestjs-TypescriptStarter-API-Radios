@@ -129,6 +129,7 @@ Todas as exceções tratadas pelo `HttpExceptionFilter` retornam a seguinte estr
 | `tag` | `string` | — | Opcional | Filtra estações por tag/gênero (ex: `gospel`, `popular`) |
 | `page` | `integer` | `1` | Mínimo: 1 | Página desejada |
 | `limit` | `integer` | `50` | Mín: 1, Máx: 500 | Quantidade de itens por página |
+| `per_page` | `integer` | `50` | Mín: 1, Máx: 500 | Alias para `limit` |
 | `sort` | `string` | `name` | `name`, `state`, `id` | Campo base para ordenação |
 | `order` | `string` | `asc` | `asc`, `desc` | Sentido crescente ou decrescente |
 | `API_KEY` | `string` | — | Opcional | Alternativa para envio da chave na query string |
@@ -138,8 +139,8 @@ Todas as exceções tratadas pelo `HttpExceptionFilter` retornam a seguinte estr
 # Via cabeçalho HTTP
 curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios?state=Tocantins&limit=10"
 
-# Via query string
-curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&order=asc"
+# Via query string com paginação
+curl "http://localhost:3000/api/radios?page=2&per_page=50&API_KEY=SUA_CHAVE"
 ```
 
 #### Resposta Sucesso (`200 OK`):
@@ -147,7 +148,7 @@ curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&orde
 {
   "data": [
     {
-      "id": 11111111111111,
+      "id": 49639317164246,
       "name": "Rádio Olivença FM",
       "streamUrl": "https://server12.srvsh.com.br:8074/stream",
       "logo": "https://radioswave.netlify.app/icon-192x192.png",
@@ -156,7 +157,7 @@ curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&orde
     }
   ],
   "total": 211,
-  "page": 1,
+  "page": 2,
   "limit": 50,
   "totalPages": 5
 }
@@ -164,15 +165,29 @@ curl "http://localhost:3000/api/radios?API_KEY=SUA_CHAVE&q=Palmas&sort=name&orde
 
 ---
 
-### 4.5. Buscar Rádio por ID
+### 4.5. Acesso Direto à Página via Caminho
+- **Método:** `GET`
+- **Rota:** `/api/radios/page/:page`
+- **Autenticação:** Obrigatória.
+- **Parâmetros de Rota:** `page` (número inteiro positivo, ex: `2`, `3`, etc.).
+- **Exemplo de Chamada:**
+  ```bash
+  curl -H "X-API-Key: SUA_CHAVE" "http://localhost:3000/api/radios/page/2"
+  # Ou na URL:
+  curl "http://localhost:3000/api/radios/page/2?API_KEY=SUA_CHAVE"
+  ```
+
+---
+
+### 4.6. Buscar Rádio por ID
 - **Método:** `GET`
 - **Rota:** `/api/radios/:id`
 - **Autenticação:** Obrigatória.
-- **Parâmetros de Rota:** `id` (número com exatamente 14 dígitos e nenhum dígito zero `0`, ex: `11111111111111`).
+- **Parâmetros de Rota:** `id` (número com exatamente 14 dígitos e nenhum dígito zero `0`, ex: `49639317164246`).
 - **Resposta Sucesso (`200 OK`):**
   ```json
   {
-    "id": 11111111111111,
+    "id": 49639317164246,
     "name": "Rádio Olivença FM",
     "streamUrl": "https://server12.srvsh.com.br:8074/stream",
     "logo": "https://radioswave.netlify.app/icon-192x192.png",
