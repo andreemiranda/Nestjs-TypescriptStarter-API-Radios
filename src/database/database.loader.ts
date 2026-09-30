@@ -4,7 +4,7 @@ import { InternalServerErrorException } from '@nestjs/common';
 import { Radio } from '../radios/interfaces/radio.interface';
 
 export class DatabaseLoader {
-  static resolveDatabasePath(): string {
+  static resolveDatabasePath(): string | null {
     if (
       process.env.RADIOS_DB_PATH &&
       fs.existsSync(process.env.RADIOS_DB_PATH)
@@ -28,34 +28,36 @@ export class DatabaseLoader {
       }
     }
 
-    throw new InternalServerErrorException(
-      'Radios database file (radios.json) not found',
-    );
+    return null;
   }
 
   static loadRadios(): Radio[] {
     const filePath = this.resolveDatabasePath();
-    let content: string;
-    try {
-      content = fs.readFileSync(filePath, 'utf-8');
-    } catch (err) {
-      const errorMsg = err instanceof Error ? err.message : String(err);
-      throw new InternalServerErrorException(
-        `Failed to read radios database: ${errorMsg}`,
-      );
+    if (filePath) {
+      try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const parsed: unknown = JSON.parse(content);
+        if (Array.isArray(parsed)) {
+          return parsed as Radio[];
+        }
+      } catch {
+        // Fall back to embedded require below
+      }
     }
 
     try {
-      const parsed: unknown = JSON.parse(content);
-      if (!Array.isArray(parsed)) {
-        throw new Error('Database content is not an array');
+      // Direct require fallback ensuring serverless environments like Vercel have in-memory data
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const embedded: unknown = require('./radios.json');
+      if (Array.isArray(embedded)) {
+        return embedded as Radio[];
       }
-      return parsed as Radio[];
-    } catch (err) {
-      const errorMsg = err instanceof Error ? err.message : String(err);
-      throw new InternalServerErrorException(
-        `Invalid JSON format in radios database: ${errorMsg}`,
-      );
+    } catch {
+      // Ignore fallback failure
     }
+
+    throw new InternalServerErrorException(
+      'Radios database file (radios.json) not found',
+    );
   }
 }

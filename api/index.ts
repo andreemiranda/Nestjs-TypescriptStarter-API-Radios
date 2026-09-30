@@ -1,17 +1,17 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import compression from 'compression';
 import express, { Express, Request, Response } from 'express';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { AppModule } from '../src/app.module';
 import { HttpExceptionFilter } from '../src/common/filters/http-exception.filter';
+import { setupSwagger } from '../src/swagger.config';
 
 const server: Express = express();
-let isReady = false;
+let bootstrapPromise: Promise<void> | null = null;
 
-async function bootstrapServer(expressInstance: Express) {
+async function bootstrapServer(expressInstance: Express): Promise<void> {
   expressInstance.disable('x-powered-by');
 
   const app = await NestFactory.create(
@@ -27,9 +27,9 @@ async function bootstrapServer(expressInstance: Express) {
     helmet({
       contentSecurityPolicy: false,
       crossOriginEmbedderPolicy: false,
-      crossOriginOpenerPolicy: { policy: 'same-origin' },
-      crossOriginResourcePolicy: { policy: 'cross-origin' },
-      frameguard: { action: 'sameorigin' },
+      crossOriginOpenerPolicy: false,
+      crossOriginResourcePolicy: false,
+      frameguard: false,
       hidePoweredBy: true,
       hsts: {
         maxAge: 31536000,
@@ -38,8 +38,8 @@ async function bootstrapServer(expressInstance: Express) {
       },
       ieNoOpen: true,
       noSniff: true,
-      originAgentCluster: true,
-      referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
+      originAgentCluster: false,
+      referrerPolicy: { policy: 'no-referrer-when-downgrade' },
       xssFilter: true,
     }),
   );
@@ -81,49 +81,30 @@ async function bootstrapServer(expressInstance: Express) {
   app.useGlobalFilters(new HttpExceptionFilter());
 
   if (process.env.SWAGGER_ENABLED !== 'false') {
-    const swaggerConfig = new DocumentBuilder()
-      .setTitle('RadiosWave API')
-      .setDescription(
-        'API REST segura para catálogo e streaming de rádios brasileiras.',
-      )
-      .setVersion('1.0.0')
-      .addApiKey(
-        {
-          type: 'apiKey',
-          name: 'X-API-Key',
-          in: 'header',
-          description:
-            'Chave de autenticação enviada no cabeçalho HTTP X-API-Key',
-        },
-        'X-API-Key',
-      )
-      .addApiKey(
-        {
-          type: 'apiKey',
-          name: 'API_KEY',
-          in: 'query',
-          description:
-            'Chave de autenticação enviada na query string ?API_KEY=<chave>',
-        },
-        'API_KEY',
-      )
-      .build();
-
-    const document = SwaggerModule.createDocument(app, swaggerConfig);
-    SwaggerModule.setup('/', app, document, {
-      swaggerOptions: {
-        persistAuthorization: true,
-      },
-    });
+    setupSwagger(app);
   }
 
   await app.init();
 }
 
-export default async function handler(req: Request, res: Response) {
-  if (!isReady) {
-    await bootstrapServer(server);
-    isReady = true;
+function getAppInstance(): Promise<void> {
+  if (!bootstrapPromise) {
+    bootstrapPromise = bootstrapServer(server);
   }
-  return server(req, res);
+  return bootstrapPromise;
+}
+
+export default async function handler(req: Request, res: Response) {
+  try {
+    await getAppInstance();
+    return server(req, res);
+  } catch (err: unknown) {
+    const errorMsg = err instanceof Error ? err.message : String(err);
+    res.status(500).json({
+      statusCode: 500,
+      error: 'Internal Server Error',
+      message: errorMsg,
+      timestamp: new Date().toISOString(),
+    });
+  }
 }
