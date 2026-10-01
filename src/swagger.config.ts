@@ -7,8 +7,7 @@ import { appLogger } from './common/services/logger.service';
 export function setupSwagger(app: INestApplication) {
   const isProduction = process.env.NODE_ENV === 'production';
   const swaggerEnabled =
-    process.env.SWAGGER_ENABLED === 'true' ||
-    (!isProduction && process.env.SWAGGER_ENABLED !== 'false');
+    process.env.SWAGGER_ENABLED === 'true' || !isProduction;
 
   if (!swaggerEnabled) {
     appLogger.log(
@@ -90,7 +89,8 @@ export function setupSwagger(app: INestApplication) {
   const swaggerConfig = new DocumentBuilder()
     .setTitle('RadiosWave API')
     .setDescription(
-      'API REST de alta performance para catálogo e streaming de rádios brasileiras.',
+      'API REST de alta performance para catálogo e streaming de rádios brasileiras.\n\n' +
+        '🔑 **Chave de Desenvolvimento**: Em ambiente de desenvolvimento/testes, utilize: `radioswave-dev-test-key-2026-secure` (clique no botão **Authorize** acima ou envie no cabeçalho `X-API-Key` ou `Authorization: Bearer <chave>`).',
     )
     .setVersion('1.0.0')
     .addApiKey(
@@ -128,6 +128,86 @@ export function setupSwagger(app: INestApplication) {
 
   const customCss = `
     .swagger-ui .topbar { display: none }
+    .radioswave-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 12px 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .radioswave-header-container {
+      max-width: 1460px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .radioswave-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      transition: opacity 0.2s;
+    }
+    .radioswave-brand:hover {
+      opacity: 0.9;
+    }
+    .radioswave-brand .radioswave-title {
+      color: #38bdf8;
+    }
+    .radioswave-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .radioswave-nav-link {
+      color: #94a3b8 !important;
+      text-decoration: none !important;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .radioswave-nav-link:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .radioswave-nav-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8 !important;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      text-decoration: none !important;
+      transition: all 0.2s;
+    }
+    .radioswave-nav-badge:hover {
+      background: rgba(56, 189, 248, 0.25);
+    }
+    .radioswave-home-link {
+      color: #0f172a !important;
+      text-decoration: none !important;
+      border-bottom: 2px solid #38bdf8;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .radioswave-home-link:hover {
+      color: #0284c7 !important;
+      border-color: #0284c7;
+    }
     .swagger-ui .info { margin: 25px 0 }
     .swagger-ui .info .title { font-family: system-ui, -apple-system, sans-serif; font-size: 28px }
     body { background-color: #f8fafc; margin: 0; padding: 0 }
@@ -143,6 +223,7 @@ export function setupSwagger(app: INestApplication) {
     customJs: [
       'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-bundle.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.0/swagger-ui-standalone-preset.min.js',
+      '/custom-header.js',
     ],
     customSiteTitle: 'RadiosWave API - Documentação',
     swaggerOptions: {

@@ -106,7 +106,9 @@ export class ApiKeyService implements OnModuleInit {
     }
 
     // 2. Tenta carregar lista separada por virgula ou chave unica (API_KEYS / API_KEY)
-    const envApiKey = process.env.API_KEY;
+    const envApiKey =
+      process.env.API_KEY ||
+      (!isProduction ? 'radioswave-dev-test-key-2026-secure' : undefined);
     if (envApiKey && !loaded.some((k) => k.id === 'default')) {
       const keysList = envApiKey
         .split(',')

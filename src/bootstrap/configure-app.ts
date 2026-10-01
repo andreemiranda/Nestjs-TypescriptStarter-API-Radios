@@ -54,17 +54,25 @@ export function configureApp(app: INestApplication): void {
       req.path.startsWith('/docs/') ||
       req.path.startsWith('/swagger');
 
+    const frameAncestors =
+      process.env.CSP_HEADER_VALUE ||
+      (!isProduction
+        ? "frame-ancestors 'self' https://*.google.com https://*.run.app"
+        : "frame-ancestors 'self'");
+
     if (isSwagger) {
       res.setHeader(
         'Content-Security-Policy',
-        "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https://radioswave.netlify.app https://cdnjs.cloudflare.com; connect-src 'self'; frame-ancestors 'none';",
+        `default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' *; ${frameAncestors};`,
       );
     } else {
       res.setHeader(
         'Content-Security-Policy',
-        "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none';",
+        `default-src 'none'; ${frameAncestors}; base-uri 'none'; form-action 'none';`,
       );
-      res.setHeader('X-Frame-Options', 'DENY');
+      if (isProduction && !process.env.CSP_HEADER_VALUE) {
+        res.setHeader('X-Frame-Options', 'DENY');
+      }
     }
 
     res.setHeader('Referrer-Policy', 'no-referrer');
@@ -83,17 +91,19 @@ export function configureApp(app: INestApplication): void {
       contentSecurityPolicy: false,
       frameguard: false,
       hidePoweredBy: true,
-      hsts: {
-        maxAge: 31536000,
-        includeSubDomains: true,
-        preload: true,
-      },
+      hsts: isProduction
+        ? {
+            maxAge: 31536000,
+            includeSubDomains: true,
+            preload: true,
+          }
+        : false,
       ieNoOpen: true,
       noSniff: true,
       originAgentCluster: true,
       referrerPolicy: { policy: 'no-referrer' },
-      crossOriginResourcePolicy: { policy: 'same-origin' },
-      crossOriginOpenerPolicy: { policy: 'same-origin' },
+      crossOriginResourcePolicy: isProduction ? { policy: 'same-origin' } : false,
+      crossOriginOpenerPolicy: isProduction ? { policy: 'same-origin' } : false,
     }),
   );
 
@@ -101,15 +111,15 @@ export function configureApp(app: INestApplication): void {
   const rawCorsOrigin = process.env.CORS_ORIGIN;
   let corsOrigin: boolean | string | string[] | RegExp = false;
 
-  if (!rawCorsOrigin) {
-    corsOrigin = !isProduction;
+  if (!isProduction) {
+    corsOrigin = true;
+  } else if (!rawCorsOrigin) {
+    corsOrigin = false;
   } else if (rawCorsOrigin === '*') {
-    if (isProduction) {
-      appLogger.warn(
-        'Alerta AppSec: CORS_ORIGIN configurado com curinga (*) em producao.',
-        'Bootstrap',
-      );
-    }
+    appLogger.warn(
+      'Alerta AppSec: CORS_ORIGIN configurado com curinga (*) em producao.',
+      'Bootstrap',
+    );
     corsOrigin = '*';
   } else {
     corsOrigin = rawCorsOrigin
