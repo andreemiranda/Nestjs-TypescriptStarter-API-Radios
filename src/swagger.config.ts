@@ -6,23 +6,20 @@ import { appLogger } from './common/services/logger.service';
 
 export function setupSwagger(app: INestApplication) {
   const isProduction = process.env.NODE_ENV === 'production';
-  const swaggerEnabled = process.env.SWAGGER_ENABLED !== 'false';
+  const swaggerEnabled = true;
 
   if (!swaggerEnabled) {
-    appLogger.log(
-      'Swagger UI desabilitado por configuracao de seguranca.',
-      'Swagger',
-    );
     return;
   }
 
   const httpAdapter = app.getHttpAdapter();
 
-  // Basic Auth para Swagger em producao (requisito 16)
+  // Basic Auth para Swagger somente se explicitamente requisitado
+  const swaggerBasicAuthEnabled = process.env.SWAGGER_BASIC_AUTH === 'true';
   const swaggerUser = process.env.SWAGGER_USER;
   const swaggerPass = process.env.SWAGGER_PASSWORD;
 
-  if (isProduction && swaggerUser && swaggerPass) {
+  if (swaggerBasicAuthEnabled && swaggerUser && swaggerPass) {
     const authMiddleware = (
       req: Request,
       res: Response,
