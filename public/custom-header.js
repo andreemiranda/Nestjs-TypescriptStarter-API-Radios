@@ -1,5 +1,21 @@
 (function () {
   function setupHeaderLink() {
+    // 0. Garante que o favicon do Swagger UI esteja definido na aba do navegador
+    try {
+      var head = document.head || document.getElementsByTagName('head')[0];
+      var currentFavicon = document.querySelector("link[rel*='icon']");
+      if (!currentFavicon) {
+        var newFav = document.createElement('link');
+        newFav.rel = 'icon';
+        newFav.type = 'image/png';
+        newFav.sizes = '32x32';
+        newFav.href = '/favicon-32x32.png';
+        head.appendChild(newFav);
+      } else if (currentFavicon.getAttribute('href') !== '/favicon-32x32.png') {
+        currentFavicon.setAttribute('href', '/favicon-32x32.png');
+      }
+    } catch (_) {}
+
     // 1. Vincula o título principal "RadiosWave API" no cabeçalho do Swagger à página inicial
     var titleEl = document.querySelector('.swagger-ui .info h2.title');
     if (titleEl && !titleEl.querySelector('a.radioswave-home-link')) {

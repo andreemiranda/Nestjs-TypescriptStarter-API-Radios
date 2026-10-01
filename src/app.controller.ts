@@ -4,8 +4,12 @@ import {
   Header,
   HttpCode,
   HttpStatus,
+  Res,
   UseGuards,
 } from '@nestjs/common';
+import type { Response as ExpressResponse } from 'express';
+import * as path from 'path';
+import * as fs from 'fs';
 import {
   ApiOperation,
   ApiResponse,
@@ -46,10 +50,16 @@ export class AppController {
 
   @Get('favicon.ico')
   @Public()
-  @HttpCode(HttpStatus.NO_CONTENT)
-  @ApiOperation({ summary: 'Favicon handler (204 No Content)' })
-  getFavicon(): void {
-    return;
+  @ApiOperation({ summary: 'Favicon do Swagger UI (favicon.ico)' })
+  getFavicon(@Res() res: ExpressResponse): void {
+    const faviconPath = path.join(process.cwd(), 'public', 'favicon.ico');
+    if (fs.existsSync(faviconPath)) {
+      res.setHeader('Content-Type', 'image/x-icon');
+      res.setHeader('Cache-Control', 'public, max-age=86400');
+      res.sendFile(faviconPath);
+    } else {
+      res.status(HttpStatus.NO_CONTENT).send();
+    }
   }
 
   @Get('api/health')

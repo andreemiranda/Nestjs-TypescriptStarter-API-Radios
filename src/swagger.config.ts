@@ -222,6 +222,7 @@ export function setupSwagger(app: INestApplication) {
       '/custom-header.js',
     ],
     customSiteTitle: 'RadiosWave API - Documentação',
+    customfavIcon: '/favicon-32x32.png',
     swaggerOptions: {
       // persistAuthorization desativado em producao para evitar chave no localStorage
       persistAuthorization: !isProduction,
