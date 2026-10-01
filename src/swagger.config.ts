@@ -88,8 +88,7 @@ export function setupSwagger(app: INestApplication) {
   const swaggerConfig = new DocumentBuilder()
     .setTitle('RadiosWave API')
     .setDescription(
-      'API REST de alta performance para catálogo e streaming de rádios brasileiras.\n\n' +
-        '🔑 **Chave de Desenvolvimento**: Em ambiente de desenvolvimento/testes, utilize: `radioswave-dev-test-key-2026-secure` (clique no botão **Authorize** acima ou envie no cabeçalho `X-API-Key` ou `Authorization: Bearer <chave>`).',
+      'API REST de alta performance para catálogo e streaming de rádios brasileiras.',
     )
     .setVersion('1.0.0')
     .addApiKey(
