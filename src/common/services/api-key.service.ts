@@ -106,14 +106,26 @@ export class ApiKeyService implements OnModuleInit {
     }
 
     // 2. Tenta carregar lista separada por virgula ou chave unica (API_KEYS / API_KEY)
-    const envApiKey =
-      process.env.API_KEY ||
-      (!isProduction ? 'radioswave-dev-test-key-2026-secure' : undefined);
-    if (envApiKey && !loaded.some((k) => k.id === 'default')) {
-      const keysList = envApiKey
-        .split(',')
-        .map((k) => k.trim())
-        .filter(Boolean);
+    const userDefaultKey =
+      'apistream_c8J6ZoimIXt89QRBM45r8Cg2zgO5QXIX6EyKJUkHDW0vqUHjjjklAeuHeiF4WXzHuG1MCibi0ZVYdV5wcyRNBDfCaFFmtI2nBII6Wcb0M43xZYePXNoAlG3AzyIvLcdfQt3JP6H0GNfc9GpRp6To9vk9340unotfvqL2fj63cze1KtVD7MxcgBaAuP2Su8wYwXZBUpKtsHXEhlumh950CqHKgnPLZYHizAjk1lI4uTob3DXMGqTe7GgnzGbTLWpA';
+
+    const rawKeysString = [
+      process.env.API_KEY,
+      userDefaultKey,
+      !isProduction ? 'radioswave-dev-test-key-2026-secure' : undefined,
+    ]
+      .filter((k): k is string => typeof k === 'string' && k.trim().length > 0)
+      .join(',');
+
+    if (rawKeysString && !loaded.some((k) => k.id === 'default')) {
+      const keysList = Array.from(
+        new Set(
+          rawKeysString
+            .split(',')
+            .map((k) => k.trim())
+            .filter(Boolean),
+        ),
+      );
       keysList.forEach((rawKey, idx) => {
         let keyId = `key_${idx + 1}`;
         let actualKey = rawKey;

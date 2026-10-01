@@ -1,4 +1,11 @@
-import { Controller, Get, Header, HttpCode, HttpStatus, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Header,
+  HttpCode,
+  HttpStatus,
+  UseGuards,
+} from '@nestjs/common';
 import {
   ApiOperation,
   ApiResponse,
@@ -15,6 +22,24 @@ import { ApiKeyGuard } from './common/guards/api-key.guard';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @Get()
+  @Public()
+  @ApiOperation({ summary: 'Página inicial e status da API' })
+  @ApiResponse({
+    status: 200,
+    description: 'Informações e endpoints da API',
+  })
+  getRoot(): Record<string, unknown> {
+    return {
+      name: 'RadiosWave API',
+      description: 'API REST para catálogo e streaming de rádios brasileiras',
+      status: 'online',
+      documentation: '/docs',
+      health: '/api/health',
+      version: '1.0.0',
+    };
+  }
+
   @Get('.well-known/security.txt')
   @Public()
   @Header('Content-Type', 'text/plain; charset=utf-8')
@@ -30,7 +55,9 @@ export class AppController {
   @Public()
   @Header('Content-Type', 'text/plain; charset=utf-8')
   @ApiProduces('text/plain')
-  @ApiOperation({ summary: 'Diretrizes para rastreadores e robôs (robots.txt)' })
+  @ApiOperation({
+    summary: 'Diretrizes para rastreadores e robôs (robots.txt)',
+  })
   getRobotsTxt(): string {
     return this.appService.getRobotsTxt();
   }

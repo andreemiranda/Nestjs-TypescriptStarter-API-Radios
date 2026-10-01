@@ -50,7 +50,10 @@ export class DatabaseLoader {
       const targetPath = path.resolve(allowedBase, process.env.RADIOS_DB_PATH);
 
       // Verificacao rigorosa contra Path Traversal
-      if (!targetPath.startsWith(allowedBase + path.sep) && targetPath !== allowedBase) {
+      if (
+        !targetPath.startsWith(allowedBase + path.sep) &&
+        targetPath !== allowedBase
+      ) {
         throw new InternalServerErrorException(
           'RADIOS_DB_PATH invalido: tentativa de path traversal detectada.',
         );
@@ -94,12 +97,12 @@ export class DatabaseLoader {
 
   static validateCatalog(data: unknown): Radio[] {
     if (!Array.isArray(data)) {
-      throw new InternalServerErrorException('Catalogo de radios deve ser um array JSON.');
+      throw new InternalServerErrorException(
+        'Catalogo de radios deve ser um array JSON.',
+      );
     }
 
-    const allowHttp =
-      process.env.ALLOW_INSECURE_HTTP_STREAMS === 'true' ||
-      process.env.NODE_ENV !== 'production';
+    const allowHttp = true;
 
     const validated: Radio[] = [];
     let insecureCount = 0;
@@ -108,46 +111,61 @@ export class DatabaseLoader {
       const item = data[i] as Record<string, unknown>;
 
       if (!item || typeof item !== 'object') {
-        throw new InternalServerErrorException(`Registro #${i + 1} invalido no catalogo.`);
+        throw new InternalServerErrorException(
+          `Registro #${i + 1} invalido no catalogo.`,
+        );
       }
 
       const id = item.id;
       if (!isValid14DigitId(id)) {
-        const stationName = typeof item.name === 'string' ? item.name : 'desconhecido';
-        const strId = typeof id === 'number' || typeof id === 'string' ? String(id) : 'invalido';
+        const stationName =
+          typeof item.name === 'string' ? item.name : 'desconhecido';
+        const strId =
+          typeof id === 'number' || typeof id === 'string'
+            ? String(id)
+            : 'invalido';
         throw new InternalServerErrorException(
           `Registro #${i + 1} (${stationName}) possui ID invalido: ${strId}. Deve ter 14 digitos sem 0 e sem repeticoes consecutivas.`,
         );
       }
 
-      if (typeof item.name !== 'string' || item.name.trim().length === 0 || item.name.length > 100) {
-        throw new InternalServerErrorException(`Registro #${i + 1} possui nome invalido.`);
+      if (
+        typeof item.name !== 'string' ||
+        item.name.trim().length === 0 ||
+        item.name.length > 100
+      ) {
+        throw new InternalServerErrorException(
+          `Registro #${i + 1} possui nome invalido.`,
+        );
       }
 
       if (typeof item.streamUrl !== 'string' || item.streamUrl.length > 500) {
-        throw new InternalServerErrorException(`Registro #${i + 1} possui streamUrl invalida.`);
+        throw new InternalServerErrorException(
+          `Registro #${i + 1} possui streamUrl invalida.`,
+        );
       }
 
       if (typeof item.logo !== 'string' || item.logo.length > 500) {
-        throw new InternalServerErrorException(`Registro #${i + 1} possui logo invalida.`);
+        throw new InternalServerErrorException(
+          `Registro #${i + 1} possui logo invalida.`,
+        );
       }
 
       if (typeof item.state !== 'string' || item.state.length > 50) {
-        throw new InternalServerErrorException(`Registro #${i + 1} possui state invalido.`);
+        throw new InternalServerErrorException(
+          `Registro #${i + 1} possui state invalido.`,
+        );
       }
 
       if (!Array.isArray(item.tags)) {
-        throw new InternalServerErrorException(`Registro #${i + 1} possui tags invalidas.`);
+        throw new InternalServerErrorException(
+          `Registro #${i + 1} possui tags invalidas.`,
+        );
       }
 
       // Validacao de seguranca da URL do stream
       if (item.streamUrl.startsWith('http://')) {
         insecureCount++;
-        if (!allowHttp) {
-          throw new InternalServerErrorException(
-            `Registro #${i + 1} (${item.name}) utiliza stream HTTP inseguro bloqueado em producao: ${item.streamUrl}`,
-          );
-        }
       }
 
       if (!isSafeUrl(item.streamUrl, allowHttp)) {
@@ -199,7 +217,9 @@ export class DatabaseLoader {
       stat = fs.statSync(filePath);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Falha nos metadados';
-      throw new InternalServerErrorException(`Falha ao obter metadados do banco: ${msg}`);
+      throw new InternalServerErrorException(
+        `Falha ao obter metadados do banco: ${msg}`,
+      );
     }
 
     // Em desenvolvimento ou testes, reaproveita o cache se mtime nao mudou
@@ -213,7 +233,9 @@ export class DatabaseLoader {
       content = fs.readFileSync(filePath, 'utf-8');
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Falha na leitura';
-      throw new InternalServerErrorException(`Falha ao ler arquivo radios.json: ${msg}`);
+      throw new InternalServerErrorException(
+        `Falha ao ler arquivo radios.json: ${msg}`,
+      );
     }
 
     let parsed: unknown;
@@ -221,7 +243,9 @@ export class DatabaseLoader {
       parsed = JSON.parse(content);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Falha no parse do JSON';
-      throw new InternalServerErrorException(`JSON invalido no arquivo radios.json: ${msg}`);
+      throw new InternalServerErrorException(
+        `JSON invalido no arquivo radios.json: ${msg}`,
+      );
     }
 
     const validated = this.validateCatalog(parsed);

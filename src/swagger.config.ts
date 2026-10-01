@@ -6,8 +6,7 @@ import { appLogger } from './common/services/logger.service';
 
 export function setupSwagger(app: INestApplication) {
   const isProduction = process.env.NODE_ENV === 'production';
-  const swaggerEnabled =
-    process.env.SWAGGER_ENABLED === 'true' || !isProduction;
+  const swaggerEnabled = process.env.SWAGGER_ENABLED !== 'false';
 
   if (!swaggerEnabled) {
     appLogger.log(

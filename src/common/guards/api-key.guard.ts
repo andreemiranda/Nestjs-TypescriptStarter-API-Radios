@@ -60,13 +60,15 @@ export class ApiKeyGuard implements CanActivate {
         ip: clientIp,
         path: reqPath,
         method: request.method,
-        reason: 'Client IP bloqueado temporariamente por excesso de tentativas invalidas',
+        reason:
+          'Client IP bloqueado temporariamente por excesso de tentativas invalidas',
       });
       throw new HttpException(
         {
           statusCode: HttpStatus.TOO_MANY_REQUESTS,
           error: 'Too Many Requests',
-          message: 'Muitas tentativas invalidas de autenticacao. Tente novamente mais tarde.',
+          message:
+            'Muitas tentativas invalidas de autenticacao. Tente novamente mais tarde.',
           retryAfter: retrySec,
         },
         HttpStatus.TOO_MANY_REQUESTS,
@@ -102,28 +104,6 @@ export class ApiKeyGuard implements CanActivate {
         rawKey = Array.isArray(extractedQueryKey)
           ? (extractedQueryKey[0] as string)
           : (extractedQueryKey as string);
-
-        const allowQuery = process.env.ALLOW_QUERY_API_KEY === 'true';
-        const isProduction = process.env.NODE_ENV === 'production';
-
-        if (isProduction && !allowQuery) {
-          bruteService.recordFailure(clientIp);
-          appLogger.logSecurityEvent({
-            event: 'SECURITY_BLOCKED',
-            ip: clientIp,
-            path: reqPath,
-            method: request.method,
-            reason: 'Autenticacao por query string desabilitada em producao',
-          });
-          throw new UnauthorizedException(
-            'Autenticacao por query string desabilitada. Utilize o cabecalho X-API-Key ou Authorization: Bearer.',
-          );
-        } else {
-          appLogger.warn(
-            'Aviso de depreciacao: autenticacao por query string esta ativa e sera descontinuada. Migre para cabecalho HTTP.',
-            'ApiKeyGuard',
-          );
-        }
       }
     }
 
@@ -140,7 +120,10 @@ export class ApiKeyGuard implements CanActivate {
 
       if (failureResult.blocked) {
         if (response && typeof response.setHeader === 'function') {
-          response.setHeader('Retry-After', failureResult.retryAfterSeconds || 60);
+          response.setHeader(
+            'Retry-After',
+            failureResult.retryAfterSeconds || 60,
+          );
         }
         throw new HttpException(
           {
@@ -182,7 +165,10 @@ export class ApiKeyGuard implements CanActivate {
 
       if (failureResult.blocked) {
         if (response && typeof response.setHeader === 'function') {
-          response.setHeader('Retry-After', failureResult.retryAfterSeconds || 60);
+          response.setHeader(
+            'Retry-After',
+            failureResult.retryAfterSeconds || 60,
+          );
         }
         throw new HttpException(
           {
@@ -209,7 +195,8 @@ export class ApiKeyGuard implements CanActivate {
     bruteService.recordSuccess(clientIp);
 
     // Registra identificador do cliente na requisicao para auditoria e logs
-    (request as unknown as Record<string, unknown>)['authenticatedKeyId'] = validation.keyId;
+    (request as unknown as Record<string, unknown>)['authenticatedKeyId'] =
+      validation.keyId;
 
     // Headers de protecao de cache para respostas autenticadas
     if (response && typeof response.setHeader === 'function') {

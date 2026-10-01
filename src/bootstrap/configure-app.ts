@@ -70,9 +70,7 @@ export function configureApp(app: INestApplication): void {
         'Content-Security-Policy',
         `default-src 'none'; ${frameAncestors}; base-uri 'none'; form-action 'none';`,
       );
-      if (isProduction && !process.env.CSP_HEADER_VALUE) {
-        res.setHeader('X-Frame-Options', 'DENY');
-      }
+      res.setHeader('X-Frame-Options', 'DENY');
     }
 
     res.setHeader('Referrer-Policy', 'no-referrer');
@@ -102,7 +100,9 @@ export function configureApp(app: INestApplication): void {
       noSniff: true,
       originAgentCluster: true,
       referrerPolicy: { policy: 'no-referrer' },
-      crossOriginResourcePolicy: isProduction ? { policy: 'same-origin' } : false,
+      crossOriginResourcePolicy: isProduction
+        ? { policy: 'same-origin' }
+        : false,
       crossOriginOpenerPolicy: isProduction ? { policy: 'same-origin' } : false,
     }),
   );
