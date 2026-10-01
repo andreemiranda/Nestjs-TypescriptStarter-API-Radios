@@ -1,20 +1,30 @@
 (function () {
-  function setupHeaderLink() {
-    // 0. Garante que o favicon do Swagger UI esteja definido na aba do navegador
+  var FAVICON_DATA_URI =
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAkFBMVEUAAAAQM0QWNUYWNkYXNkYALjoWNUYYOEUXN0YaPEUPMUAUM0QVNUYWNkYWNUYWNUUWNUYVNEYWNkYWNUYWM0eF6i0XNkchR0OB5SwzZj9wyTEvXkA3az5apTZ+4C5DgDt31C9frjU5bz5uxTI/eDxzzjAmT0IsWUEeQkVltzR62S6D6CxIhzpKijpJiDpOkDl4b43lAAAAFXRSTlMAFc304QeZ/vj+ECB3xKlGilPXvS2Ka/h0AAABfklEQVR42oVT2XaCMBAdJRAi7pYJa2QHxbb//3ctSSAUPfa+THLmzj4DBvZpvyauS9b7kw3PWDkWsrD6fFQhQ9dZLfVbC5M88CWCPERr+8fLZodJ5M8QJbjbGL1H2M1fIGfEm+wJN+bGCSc6EXtNS/8FSrq2VX6YDv++XLpJ8SgDWMnwqznGo6alcTbIxB2CHKn8VFikk2mMV2lEnV+CJd9+jJlxXmMr5dW14YCqwgbFpO8FNvJxwwM4TPWPo5QalEsRMAcusXpi58/QUEWPL0AK1ThM5oQCUyXPoPINkdd922VBw4XgTV9zDGWWFrgjIQs4vwvOg6xr+6gbCTqE+DYhlMGX0CF2OknK5gQ2JrkDh/W6TOEbYDeVecKbJtyNXiCfGmW7V93J2hDus1bDfhxWbIZVYDXITA7Lo6E0Ktgg9eB4KWuR44aj7ppBVPazhQH7/M/KgWe9X1qAg8XypT6nxIMJH+T94QCsLvj29IYwZxyO9/F8vCbO9tX5/wDGjEZ7vrgFZwAAAABJRU5ErkJggg==';
+
+  function applyFavicon() {
     try {
       var head = document.head || document.getElementsByTagName('head')[0];
-      var currentFavicon = document.querySelector("link[rel*='icon']");
-      if (!currentFavicon) {
+      var links = document.querySelectorAll("link[rel*='icon']");
+      if (!links || links.length === 0) {
         var newFav = document.createElement('link');
         newFav.rel = 'icon';
         newFav.type = 'image/png';
         newFav.sizes = '32x32';
-        newFav.href = '/favicon-32x32.png';
+        newFav.href = FAVICON_DATA_URI;
         head.appendChild(newFav);
-      } else if (currentFavicon.getAttribute('href') !== '/favicon-32x32.png') {
-        currentFavicon.setAttribute('href', '/favicon-32x32.png');
+      } else {
+        for (var i = 0; i < links.length; i++) {
+          links[i].setAttribute('href', FAVICON_DATA_URI);
+          links[i].setAttribute('type', 'image/png');
+        }
       }
     } catch (_) {}
+  }
+
+  function setupHeaderLink() {
+    // 0. Garante que o favicon do Swagger UI esteja definido na aba do navegador
+    applyFavicon();
 
     // 1. Vincula o título principal "RadiosWave API" no cabeçalho do Swagger à página inicial
     var titleEl = document.querySelector('.swagger-ui .info h2.title');

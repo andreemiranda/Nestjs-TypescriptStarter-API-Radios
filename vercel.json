@@ -1,7 +1,21 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "public/**"
+    }
+  },
   "headers": [
+    {
+      "source": "/favicon(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, immutable"
+        }
+      ]
+    },
     {
       "source": "/api/(.*)",
       "headers": [

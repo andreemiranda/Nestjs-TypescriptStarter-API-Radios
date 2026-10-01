@@ -21,6 +21,11 @@ import { AppService } from './app.service';
 import { Public } from './common/decorators/public.decorator';
 import { ApiKeyGuard } from './common/guards/api-key.guard';
 
+const SWAGGER_FAVICON_BASE64 =
+  'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAkFBMVEUAAAAQM0QWNUYWNkYXNkYALjoWNUYYOEUXN0YaPEUPMUAUM0QVNUYWNkYWNUYWNUUWNUYVNEYWNkYWNUYWM0eF6i0XNkchR0OB5SwzZj9wyTEvXkA3az5apTZ+4C5DgDt31C9frjU5bz5uxTI/eDxzzjAmT0IsWUEeQkVltzR62S6D6CxIhzpKijpJiDpOkDl4b43lAAAAFXRSTlMAFc304QeZ/vj+ECB3xKlGilPXvS2Ka/h0AAABfklEQVR42oVT2XaCMBAdJRAi7pYJa2QHxbb//3ctSSAUPfa+THLmzj4DBvZpvyauS9b7kw3PWDkWsrD6fFQhQ9dZLfVbC5M88CWCPERr+8fLZodJ5M8QJbjbGL1H2M1fIGfEm+wJN+bGCSc6EXtNS/8FSrq2VX6YDv++XLpJ8SgDWMnwqznGo6alcTbIxB2CHKn8VFikk2mMV2lEnV+CJd9+jJlxXmMr5dW14YCqwgbFpO8FNvJxwwM4TPWPo5QalEsRMAcusXpi58/QUEWPL0AK1ThM5oQCUyXPoPINkdd922VBw4XgTV9zDGWWFrgjIQs4vwvOg6xr+6gbCTqE+DYhlMGX0CF2OknK5gQ2JrkDh/W6TOEbYDeVecKbJtyNXiCfGmW7V93J2hDus1bDfhxWbIZVYDXITA7Lo6E0Ktgg9eB4KWuR44aj7ppBVPazhQH7/M/KgWe9X1qAg8XypT6nxIMJH+T94QCsLvj29IYwZxyO9/F8vCbO9tX5/wDGjEZ7vrgFZwAAAABJRU5ErkJggg==';
+
+const SWAGGER_FAVICON_BUFFER = Buffer.from(SWAGGER_FAVICON_BASE64, 'base64');
+
 @ApiTags('System')
 @Controller()
 export class AppController {
@@ -52,14 +57,43 @@ export class AppController {
   @Public()
   @ApiOperation({ summary: 'Favicon do Swagger UI (favicon.ico)' })
   getFavicon(@Res() res: ExpressResponse): void {
-    const faviconPath = path.join(process.cwd(), 'public', 'favicon.ico');
-    if (fs.existsSync(faviconPath)) {
-      res.setHeader('Content-Type', 'image/x-icon');
-      res.setHeader('Cache-Control', 'public, max-age=86400');
-      res.sendFile(faviconPath);
-    } else {
-      res.status(HttpStatus.NO_CONTENT).send();
-    }
+    res.setHeader('Content-Type', 'image/x-icon');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.send(SWAGGER_FAVICON_BUFFER);
+  }
+
+  @Get('favicon-32x32.png')
+  @Public()
+  @ApiOperation({ summary: 'Favicon do Swagger UI (32x32 PNG)' })
+  getFavicon32(@Res() res: ExpressResponse): void {
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.send(SWAGGER_FAVICON_BUFFER);
+  }
+
+  @Get('favicon-16x16.png')
+  @Public()
+  @ApiOperation({ summary: 'Favicon do Swagger UI (16x16 PNG)' })
+  getFavicon16(@Res() res: ExpressResponse): void {
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.send(SWAGGER_FAVICON_BUFFER);
+  }
+
+  @Get('docs/favicon-32x32.png')
+  @Public()
+  getDocsFavicon32(@Res() res: ExpressResponse): void {
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.send(SWAGGER_FAVICON_BUFFER);
+  }
+
+  @Get('docs/favicon-16x16.png')
+  @Public()
+  getDocsFavicon16(@Res() res: ExpressResponse): void {
+    res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.send(SWAGGER_FAVICON_BUFFER);
   }
 
   @Get('api/health')
