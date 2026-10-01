@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseLoader } from '../database/database.loader';
-import {
-  Radio,
-  PaginatedRadios,
-  RadioMeta,
-} from './interfaces/radio.interface';
+import { Radio } from './interfaces/radio.interface';
 import { QueryRadiosDto } from './dto/query-radios.dto';
+import { PaginatedRadios } from './interfaces/paginated-radios.interface';
 
 @Injectable()
 export class RadiosService {
@@ -38,94 +35,136 @@ export class RadiosService {
     const radios = DatabaseLoader.loadRadios();
     const strId = id.toString();
     const numId = Number(id);
-    return radios.find(
-      (radio) => radio.id === numId || radio.id.toString() === strId,
-    );
+
+    return radios.find((r) => r.id === numId || r.id.toString() === strId);
   }
 
-  getMeta(): RadioMeta {
+  getMeta(): {
+    states: string[];
+    tags: string[];
+    total: number;
+  } {
     const radios = DatabaseLoader.loadRadios();
-    const states = [
-      ...new Set(radios.map((r) => r.state).filter(Boolean)),
-    ].sort((a, b) => (a ?? '').localeCompare(b ?? ''));
-
-    const tags = [
-      ...new Set(
-        radios
-          .flatMap((r) => (Array.isArray(r.tags) ? r.tags : []))
-          .filter(Boolean),
-      ),
-    ].sort((a, b) => (a ?? '').localeCompare(b ?? ''));
-
-    return { states, tags, total: radios.length };
-  }
-
-  findByState(state: string): Radio[] {
-    const radios = DatabaseLoader.loadRadios();
-    const normalized = state.trim().toLowerCase();
-    return radios.filter(
-      (r) => (r.state ?? '').trim().toLowerCase() === normalized,
+    const states = Array.from(new Set(radios.map((r) => r.state))).sort(
+      (a, b) => a.localeCompare(b, 'pt-BR'),
     );
-  }
-
-  findByTag(tag: string): Radio[] {
-    const radios = DatabaseLoader.loadRadios();
-    const normalized = tag.trim().toLowerCase();
-    return radios.filter(
-      (r) =>
-        Array.isArray(r.tags) &&
-        r.tags.some((t) => t && t.trim().toLowerCase() === normalized),
+    const tags = Array.from(new Set(radios.flatMap((r) => r.tags))).sort(
+      (a, b) => a.localeCompare(b, 'pt-BR'),
     );
+
+    return {
+      states,
+      tags,
+      total: radios.length,
+    };
   }
 
-  private applyFilters(radios: Radio[], query: QueryRadiosDto): Radio[] {
-    return radios.filter((radio) => {
-      if (query.state) {
-        const radioState = radio.state ?? '';
-        if (radioState.toLowerCase() !== query.state.toLowerCase()) {
-          return false;
-        }
-      }
-      if (query.tag) {
-        const radioTags = Array.isArray(radio.tags) ? radio.tags : [];
-        if (
-          !radioTags.some(
-            (t) => t && t.toLowerCase() === query.tag.toLowerCase(),
-          )
-        ) {
-          return false;
-        }
-      }
-      if (query.q) {
-        const radioName = radio.name ?? '';
-        const radioState = radio.state ?? '';
-        const radioTags = Array.isArray(radio.tags) ? radio.tags.join(' ') : '';
-        const radioId = radio.id ? radio.id.toString() : '';
-        const haystack =
-          `${radioName} ${radioState} ${radioTags} ${radioId}`.toLowerCase();
-        if (!haystack.includes(query.q.toLowerCase())) {
-          return false;
-        }
-      }
-      return true;
-    });
+  findByState(
+    state: string,
+    page = 1,
+    limit = 50,
+  ): {
+    data: Radio[];
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  } {
+    const radios = DatabaseLoader.loadRadios();
+    const searchState = state.toLowerCase().trim();
+    const matched = radios.filter((r) => r.state.toLowerCase() === searchState);
+    const total = matched.length;
+    const safePage = Math.max(1, page);
+    const safeLimit = Math.min(10000, Math.max(1, limit));
+    const totalPages = Math.max(1, Math.ceil(total / safeLimit));
+    const start = (safePage - 1) * safeLimit;
+    const data = matched.slice(start, start + safeLimit);
+
+    return {
+      data,
+      total,
+      page: safePage,
+      limit: safeLimit,
+      totalPages,
+    };
+  }
+
+  findByTag(
+    tag: string,
+    page = 1,
+    limit = 50,
+  ): {
+    data: Radio[];
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  } {
+    const radios = DatabaseLoader.loadRadios();
+    const searchTag = tag.toLowerCase().trim();
+    const matched = radios.filter((r) =>
+      r.tags.some((t) => t.toLowerCase() === searchTag),
+    );
+    const total = matched.length;
+    const safePage = Math.max(1, page);
+    const safeLimit = Math.min(10000, Math.max(1, limit));
+    const totalPages = Math.max(1, Math.ceil(total / safeLimit));
+    const start = (safePage - 1) * safeLimit;
+    const data = matched.slice(start, start + safeLimit);
+
+    return {
+      data,
+      total,
+      page: safePage,
+      limit: safeLimit,
+      totalPages,
+    };
+  }
+
+  private applyFilters(
+    radios: readonly Radio[],
+    query: QueryRadiosDto,
+  ): Radio[] {
+    let result = [...radios];
+
+    if (query.q) {
+      const q = query.q.toLowerCase().trim();
+      result = result.filter(
+        (r) =>
+          r.name.toLowerCase().includes(q) ||
+          r.state.toLowerCase().includes(q) ||
+          r.tags.some((t) => t.toLowerCase().includes(q)),
+      );
+    }
+
+    if (query.state) {
+      const s = query.state.toLowerCase().trim();
+      result = result.filter((r) => r.state.toLowerCase() === s);
+    }
+
+    if (query.tag) {
+      const t = query.tag.toLowerCase().trim();
+      result = result.filter((r) =>
+        r.tags.some((tag) => tag.toLowerCase() === t),
+      );
+    }
+
+    return result;
   }
 
   private applySort(radios: Radio[], query: QueryRadiosDto): Radio[] {
-    const sorted = [...radios];
-    sorted.sort((a, b) => {
-      let cmp = 0;
-      if (query.sort === 'id') {
-        const aId = typeof a.id === 'number' ? a.id : Number(a.id) || 0;
-        const bId = typeof b.id === 'number' ? b.id : Number(b.id) || 0;
-        cmp = aId - bId;
-      } else {
-        const aVal = (a[query.sort] ?? '').toString();
-        const bVal = (b[query.sort] ?? '').toString();
-        cmp = aVal.localeCompare(bVal, 'pt-BR');
+    const sort = query.sort || 'name';
+    const order = query.order || 'asc';
+    const factor = order === 'desc' ? -1 : 1;
+
+    return [...radios].sort((a, b) => {
+      if (sort === 'id') {
+        return (Number(a.id) - Number(b.id)) * factor;
       }
-      return query.order === 'desc' ? -cmp : cmp;
+      if (sort === 'state') {
+        return a.state.localeCompare(b.state, 'pt-BR') * factor;
+      }
+      return a.name.localeCompare(b.name, 'pt-BR') * factor;
     });
-    return sorted;
   }
 }

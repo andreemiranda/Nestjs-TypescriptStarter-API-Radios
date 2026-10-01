@@ -1,0 +1,54 @@
+name: CI & Seguranca
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  audit-and-test:
+    name: Verificacao de Seguranca, Testes e Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configuracao do Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Instalacao rigorosa de dependencias
+        run: npm ci
+
+      - name: Verificacao de vulnerabilidades de dependencias (npm audit)
+        run: npm audit --audit-level=high
+
+      - name: Verificacao de estilo e lint
+        run: npm run lint
+
+      - name: Execucao de testes unitarios
+        run: npm test
+
+      - name: Execucao de testes e2e
+        run: npm run test:e2e
+        env:
+          NODE_ENV: test
+          API_KEY: 6addf0e784c83b88f76d0d97a3a34bf7cb77d88145b9d37f4eea747d81e1a97d
+
+      - name: Compilacao de producao
+        run: npm run build
+
+      - name: Varredura de segredos com Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,18 +3,25 @@ import {
   ExecutionContext,
   Injectable,
   UnauthorizedException,
+  HttpException,
+  HttpStatus,
   ServiceUnavailableException,
+  Optional,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import type { Request, Response } from 'express';
-import * as crypto from 'crypto';
-import * as fs from 'fs';
-import * as path from 'path';
 import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
+import { ApiKeyService } from '../services/api-key.service';
+import { AuthBruteForceService } from '../services/auth-brute-force.service';
+import { appLogger } from '../services/logger.service';
 
 @Injectable()
 export class ApiKeyGuard implements CanActivate {
-  constructor(private readonly reflector?: Reflector) {}
+  constructor(
+    @Optional() private readonly reflector?: Reflector,
+    @Optional() private readonly apiKeyService?: ApiKeyService,
+    @Optional() private readonly bruteForceService?: AuthBruteForceService,
+  ) {}
 
   canActivate(context: ExecutionContext): boolean {
     const isPublic = this.reflector?.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
@@ -26,87 +33,185 @@ export class ApiKeyGuard implements CanActivate {
     const request = httpContext.getRequest<Request>();
     const response = httpContext.getResponse<Response>();
     const reqPath = request.path || request.url || '';
+    const clientIp = request.ip || request.socket.remoteAddress || 'unknown';
 
-    // /api/health is always public
-    if (
-      isPublic ||
+    // Apenas /api/health estrito e publico; /api/health/detailed e protegido
+    const isPublicHealth =
       reqPath === '/api/health' ||
       reqPath === '/api/health/' ||
-      reqPath.startsWith('/api/health?') ||
-      reqPath.startsWith('/api/health/')
-    ) {
+      reqPath.startsWith('/api/health?');
+
+    if (isPublic || isPublicHealth) {
       return true;
     }
 
-    const expectedKey = process.env.API_KEY;
-    if (!expectedKey) {
+    const bruteService = this.bruteForceService || new AuthBruteForceService();
+    const keyService = this.apiKeyService || new ApiKeyService();
+
+    // 1. Verifica se o IP esta bloqueado por forca bruta
+    const blockStatus = bruteService.isBlocked(clientIp);
+    if (blockStatus.blocked) {
+      const retrySec = blockStatus.retryAfterSeconds || 60;
+      if (response && typeof response.setHeader === 'function') {
+        response.setHeader('Retry-After', retrySec);
+      }
+      appLogger.logSecurityEvent({
+        event: 'AUTH_FAILURE',
+        ip: clientIp,
+        path: reqPath,
+        method: request.method,
+        reason: 'Client IP bloqueado temporariamente por excesso de tentativas invalidas',
+      });
+      throw new HttpException(
+        {
+          statusCode: HttpStatus.TOO_MANY_REQUESTS,
+          error: 'Too Many Requests',
+          message: 'Muitas tentativas invalidas de autenticacao. Tente novamente mais tarde.',
+          retryAfter: retrySec,
+        },
+        HttpStatus.TOO_MANY_REQUESTS,
+      );
+    }
+
+    // 2. Extrai a chave dos cabecalhos ou query string
+    let rawKey: string | undefined;
+
+    // Prioridade 1: Cabecalho X-API-Key
+    const xApiKey = request.headers['x-api-key'];
+    if (xApiKey) {
+      rawKey = Array.isArray(xApiKey) ? xApiKey[0] : xApiKey;
+    }
+
+    // Prioridade 2: Cabecalho Authorization: Bearer <key>
+    if (!rawKey && request.headers.authorization) {
+      const authHeader = request.headers.authorization;
+      const parts = authHeader.split(' ');
+      if (parts.length === 2 && /^bearer$/i.test(parts[0])) {
+        rawKey = parts[1];
+      }
+    }
+
+    // Prioridade 3: Query String (?API_KEY= ou ?api_key=)
+    if (!rawKey) {
+      const extractedQueryKey =
+        (request as unknown as Record<string, unknown>)['queryApiKey'] ||
+        request.query?.['API_KEY'] ||
+        request.query?.['api_key'];
+
+      if (extractedQueryKey) {
+        rawKey = Array.isArray(extractedQueryKey)
+          ? (extractedQueryKey[0] as string)
+          : (extractedQueryKey as string);
+
+        const allowQuery = process.env.ALLOW_QUERY_API_KEY === 'true';
+        const isProduction = process.env.NODE_ENV === 'production';
+
+        if (isProduction && !allowQuery) {
+          bruteService.recordFailure(clientIp);
+          appLogger.logSecurityEvent({
+            event: 'SECURITY_BLOCKED',
+            ip: clientIp,
+            path: reqPath,
+            method: request.method,
+            reason: 'Autenticacao por query string desabilitada em producao',
+          });
+          throw new UnauthorizedException(
+            'Autenticacao por query string desabilitada. Utilize o cabecalho X-API-Key ou Authorization: Bearer.',
+          );
+        } else {
+          appLogger.warn(
+            'Aviso de depreciacao: autenticacao por query string esta ativa e sera descontinuada. Migre para cabecalho HTTP.',
+            'ApiKeyGuard',
+          );
+        }
+      }
+    }
+
+    // 3. Verifica se a chave foi fornecida
+    if (!rawKey || typeof rawKey !== 'string' || rawKey.trim().length === 0) {
+      const failureResult = bruteService.recordFailure(clientIp);
+      appLogger.logSecurityEvent({
+        event: 'AUTH_FAILURE',
+        ip: clientIp,
+        path: reqPath,
+        method: request.method,
+        reason: 'Chave de API ausente',
+      });
+
+      if (failureResult.blocked) {
+        if (response && typeof response.setHeader === 'function') {
+          response.setHeader('Retry-After', failureResult.retryAfterSeconds || 60);
+        }
+        throw new HttpException(
+          {
+            statusCode: HttpStatus.TOO_MANY_REQUESTS,
+            error: 'Too Many Requests',
+            message: 'Muitas tentativas invalidas. Tente novamente mais tarde.',
+          },
+          HttpStatus.TOO_MANY_REQUESTS,
+        );
+      }
+
+      throw new UnauthorizedException(
+        'Missing X-API-Key header, Authorization Bearer token, or API_KEY query parameter',
+      );
+    }
+
+    // 4. Valida a chave utilizando o ApiKeyService
+    if (!keyService.hasConfiguredKeys()) {
+      keyService.loadKeysFromEnvironment();
+    }
+
+    if (!keyService.hasConfiguredKeys()) {
       throw new ServiceUnavailableException(
         'API key not configured on the server',
       );
     }
 
-    const headerValue = request.headers['x-api-key'];
-    const queryValue =
-      (request.query?.['API_KEY'] as string | undefined) ||
-      (request.query?.['api_key'] as string | undefined);
-    const provided = headerValue || queryValue;
-    const providedKey = Array.isArray(provided) ? provided[0] : provided;
+    const validation = keyService.validateKey(rawKey);
+    if (!validation.valid) {
+      const failureResult = bruteService.recordFailure(clientIp);
+      appLogger.logSecurityEvent({
+        event: 'AUTH_FAILURE',
+        ip: clientIp,
+        path: reqPath,
+        method: request.method,
+        reason: validation.reason || 'Chave de API invalida',
+        keyId: validation.keyId,
+      });
 
-    if (!providedKey) {
-      throw new UnauthorizedException(
-        'Missing X-API-Key header or API_KEY query parameter',
-      );
-    }
-
-    if (typeof providedKey !== 'string') {
-      throw new UnauthorizedException('Invalid API key');
-    }
-
-    const validKeys = [expectedKey];
-    if (
-      process.env.SYSTEM_API_KEY &&
-      !validKeys.includes(process.env.SYSTEM_API_KEY)
-    ) {
-      validKeys.push(process.env.SYSTEM_API_KEY);
-    }
-
-    try {
-      const envPath = path.join(process.cwd(), '.env');
-      if (fs.existsSync(envPath)) {
-        const fileContent = fs.readFileSync(envPath, 'utf-8');
-        const match = fileContent.match(/^API_KEY=(.*)$/m);
-        if (match && match[1]) {
-          const fileKey = match[1].trim();
-          if (fileKey && !validKeys.includes(fileKey)) {
-            validKeys.push(fileKey);
-          }
+      if (failureResult.blocked) {
+        if (response && typeof response.setHeader === 'function') {
+          response.setHeader('Retry-After', failureResult.retryAfterSeconds || 60);
         }
+        throw new HttpException(
+          {
+            statusCode: HttpStatus.TOO_MANY_REQUESTS,
+            error: 'Too Many Requests',
+            message: 'Muitas tentativas invalidas. Tente novamente mais tarde.',
+          },
+          HttpStatus.TOO_MANY_REQUESTS,
+        );
       }
-    } catch {
-      // ignore
-    }
 
-    // Cryptographic constant-time hash comparison to defeat any timing attacks
-    const trimmedProvided = providedKey.trim();
-    const providedHash = crypto
-      .createHash('sha256')
-      .update(trimmedProvided)
-      .digest();
+      if (validation.reason === 'EXPIRED_KEY') {
+        throw new UnauthorizedException('API key has expired');
+      }
 
-    const matches = validKeys.some((key) => {
-      const trimmedKey = key.trim();
-      const expectedHash = crypto
-        .createHash('sha256')
-        .update(trimmedKey)
-        .digest();
-      return crypto.timingSafeEqual(expectedHash, providedHash);
-    });
+      if (validation.reason === 'INACTIVE_KEY') {
+        throw new UnauthorizedException('API key is inactive');
+      }
 
-    if (!matches) {
       throw new UnauthorizedException('Invalid API key');
     }
 
-    // Protect against downstream proxy and client cache retention of sensitive data
+    // Sucesso na autenticacao: reseta historico de forca bruta para este IP
+    bruteService.recordSuccess(clientIp);
+
+    // Registra identificador do cliente na requisicao para auditoria e logs
+    (request as unknown as Record<string, unknown>)['authenticatedKeyId'] = validation.keyId;
+
+    // Headers de protecao de cache para respostas autenticadas
     if (response && typeof response.setHeader === 'function') {
       response.setHeader(
         'Cache-Control',

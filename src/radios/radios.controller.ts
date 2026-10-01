@@ -5,7 +5,6 @@ import {
   Param,
   UseGuards,
   NotFoundException,
-  BadRequestException,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -14,14 +13,19 @@ import {
   ApiParam,
   ApiSecurity,
 } from '@nestjs/swagger';
+import { Throttle } from '@nestjs/throttler';
 import { RadiosService } from './radios.service';
 import { QueryRadiosDto } from './dto/query-radios.dto';
+import { QueryByCategoryDto } from './dto/query-by-category.dto';
 import { ApiKeyGuard } from '../common/guards/api-key.guard';
-import { cleanParam } from '../common/utils/sanitize.util';
-import { isValid14DigitId } from '../common/utils/id.util';
+import { RadioIdPipe } from '../common/pipes/radio-id.pipe';
+import { RadioStatePipe } from '../common/pipes/radio-state.pipe';
+import { RadioTagPipe } from '../common/pipes/radio-tag.pipe';
+import { RadioPagePipe } from '../common/pipes/radio-page.pipe';
 
 @ApiTags('Radios')
 @ApiSecurity('X-API-Key')
+@ApiSecurity('BearerAuth')
 @ApiSecurity('API_KEY')
 @Controller('api/radios')
 @UseGuards(ApiKeyGuard)
@@ -29,6 +33,7 @@ export class RadiosController {
   constructor(private readonly radiosService: RadiosService) {}
 
   @Get()
+  @Throttle({ default: { limit: 30, ttl: 60000 } })
   @ApiOperation({
     summary: 'Listar rádios com paginação, filtros e ordenação',
   })
@@ -38,15 +43,13 @@ export class RadiosController {
   })
   @ApiResponse({ status: 400, description: 'Parâmetros de query inválidos' })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
-  @ApiResponse({
-    status: 503,
-    description: 'API Key não configurada no servidor',
-  })
+  @ApiResponse({ status: 429, description: 'Limite de requisições excedido' })
   findAll(@Query() query: QueryRadiosDto) {
     return this.radiosService.findAll(query);
   }
 
   @Get('meta')
+  @Throttle({ default: { limit: 60, ttl: 60000 } })
   @ApiOperation({
     summary: 'Obter metadados (lista de estados, tags e total de rádios)',
   })
@@ -57,6 +60,7 @@ export class RadiosController {
   }
 
   @Get('states')
+  @Throttle({ default: { limit: 60, ttl: 60000 } })
   @ApiOperation({ summary: 'Obter lista de estados disponíveis' })
   @ApiResponse({ status: 200, description: 'Array com nomes de estados' })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
@@ -65,6 +69,7 @@ export class RadiosController {
   }
 
   @Get('tags')
+  @Throttle({ default: { limit: 60, ttl: 60000 } })
   @ApiOperation({ summary: 'Obter lista de tags e categorias disponíveis' })
   @ApiResponse({ status: 200, description: 'Array com tags' })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
@@ -73,7 +78,8 @@ export class RadiosController {
   }
 
   @Get('by-state/:state')
-  @ApiOperation({ summary: 'Buscar estações de rádio por estado' })
+  @Throttle({ default: { limit: 40, ttl: 60000 } })
+  @ApiOperation({ summary: 'Buscar estações de rádio por estado (paginado)' })
   @ApiParam({
     name: 'state',
     description: 'Nome do estado brasileiro',
@@ -82,17 +88,16 @@ export class RadiosController {
   @ApiResponse({ status: 200, description: 'Estações do estado pesquisado' })
   @ApiResponse({ status: 400, description: 'Parâmetro de estado inválido' })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
-  findByState(@Param('state') state: string) {
-    const cleaned = cleanParam(state);
-    if (!cleaned || cleaned.length > 50) {
-      throw new BadRequestException('Invalid state parameter');
-    }
-    const result = this.radiosService.findByState(cleaned);
-    return { data: result, total: result.length };
+  findByState(
+    @Param('state', RadioStatePipe) state: string,
+    @Query() query: QueryByCategoryDto,
+  ) {
+    return this.radiosService.findByState(state, query.page, query.limit);
   }
 
   @Get('by-tag/:tag')
-  @ApiOperation({ summary: 'Buscar estações de rádio por tag' })
+  @Throttle({ default: { limit: 40, ttl: 60000 } })
+  @ApiOperation({ summary: 'Buscar estações de rádio por tag (paginado)' })
   @ApiParam({
     name: 'tag',
     description: 'Nome da tag ou gênero musical',
@@ -101,18 +106,18 @@ export class RadiosController {
   @ApiResponse({ status: 200, description: 'Estações com a tag informada' })
   @ApiResponse({ status: 400, description: 'Parâmetro de tag inválido' })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
-  findByTag(@Param('tag') tag: string) {
-    const cleaned = cleanParam(tag);
-    if (!cleaned || cleaned.length > 50) {
-      throw new BadRequestException('Invalid tag parameter');
-    }
-    const result = this.radiosService.findByTag(cleaned);
-    return { data: result, total: result.length };
+  findByTag(
+    @Param('tag', RadioTagPipe) tag: string,
+    @Query() query: QueryByCategoryDto,
+  ) {
+    return this.radiosService.findByTag(tag, query.page, query.limit);
   }
 
-  @Get('page/:page')
+  @Get(['page/:page', 'page_:page', 'per_page_:page'])
+  @Throttle({ default: { limit: 40, ttl: 60000 } })
   @ApiOperation({
-    summary: 'Acessar rádios paginadas diretamente pelo número da página no caminho da URL',
+    summary:
+      'Acessar rádios paginadas diretamente pelo número da página no caminho da URL (ex: /page/2, /page_2, /per_page_2)',
   })
   @ApiParam({
     name: 'page',
@@ -126,19 +131,14 @@ export class RadiosController {
   @ApiResponse({ status: 400, description: 'Número de página inválido' })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
   findByPage(
-    @Param('page') pageParam: string,
+    @Param('page', RadioPagePipe) pageNum: number,
     @Query() query: QueryRadiosDto,
   ) {
-    const pageNum = parseInt(pageParam, 10);
-    if (Number.isNaN(pageNum) || pageNum < 1 || pageNum > 10000) {
-      throw new BadRequestException(
-        'O parâmetro page deve ser um número inteiro positivo (mínimo 1)',
-      );
-    }
     return this.radiosService.findAll({ ...query, page: pageNum });
   }
 
   @Get(':id')
+  @Throttle({ default: { limit: 120, ttl: 60000 } })
   @ApiOperation({
     summary: 'Buscar estação de rádio por identificador ID de 14 dígitos',
   })
@@ -156,16 +156,10 @@ export class RadiosController {
   })
   @ApiResponse({ status: 401, description: 'Chave de API ausente ou inválida' })
   @ApiResponse({ status: 404, description: 'Estação de rádio não encontrada' })
-  findOne(@Param('id') id: string) {
-    if (!isValid14DigitId(id)) {
-      throw new BadRequestException(
-        'O parâmetro ID deve possuir 14 dígitos, sem o dígito zero (0) e sem dígitos repetidos consecutivamente',
-      );
-    }
-    const numericId = Number(id);
+  findOne(@Param('id', RadioIdPipe) numericId: number) {
     const radio = this.radiosService.findOne(numericId);
     if (!radio) {
-      throw new NotFoundException(`Radio with id ${id} not found`);
+      throw new NotFoundException(`Radio with id ${numericId} not found`);
     }
     return radio;
   }

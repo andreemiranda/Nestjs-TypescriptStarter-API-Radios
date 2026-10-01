@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/health/detailed
+Disallow: /api/radios/*
+Sitemap: https://radioswave.vercel.app/sitemap.xml

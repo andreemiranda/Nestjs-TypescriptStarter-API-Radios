@@ -62,30 +62,31 @@ export class QueryRadiosDto {
   page: number = 1;
 
   @ApiPropertyOptional({
-    description: 'Quantidade de estações por página (padrão: 50, máximo: 500)',
+    description:
+      'Quantidade de estações por página (padrão: 50, máximo: 10000)',
     default: 50,
     minimum: 1,
-    maximum: 500,
+    maximum: 10000,
   })
   @IsOptional()
   @Type(() => Number)
   @IsInt()
   @Min(1)
-  @Max(500)
+  @Max(10000)
   limit: number = 50;
 
   @ApiPropertyOptional({
     description:
-      'Alias para limit: quantidade de estações por página (padrão: 50, máximo: 500)',
+      'Alias para limit: quantidade de estações por página (padrão: 50, máximo: 10000)',
     example: 50,
     minimum: 1,
-    maximum: 500,
+    maximum: 10000,
   })
   @IsOptional()
   @Type(() => Number)
   @IsInt()
   @Min(1)
-  @Max(500)
+  @Max(10000)
   per_page?: number;
 
   @ApiPropertyOptional({
@@ -105,18 +106,4 @@ export class QueryRadiosDto {
   @IsOptional()
   @IsIn(['asc', 'desc'])
   order: SortOrder = 'asc';
-
-  @ApiPropertyOptional({
-    description: 'Chave de autenticação fornecida via query string',
-    maxLength: 256,
-  })
-  @IsOptional()
-  @IsString()
-  @MaxLength(256)
-  API_KEY?: string;
-
-  @IsOptional()
-  @IsString()
-  @MaxLength(256)
-  api_key?: string;
 }
